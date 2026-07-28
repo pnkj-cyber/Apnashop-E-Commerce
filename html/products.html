@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApNASHOp - Browse Products</title>
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>
+                <a href="index.html" class="logo-link">
+                    <span class="apna">ApNA</span>
+                    <span class="shop">sHOp</span>
+                </a>
+            </h1>
+        </div>
+
+        <div class="nav-datetime-container" id="navLinks">
+            <!-- Date block -->
+            <div class="widget-date-block">
+                <span class="widget-date-large" id="widgetDate">--/--</span>
+                <div class="widget-date-stack">
+                    <span class="widget-day" id="widgetDay">---</span>
+                    <span class="widget-month" id="widgetMonth">---</span>
+                </div>
+            </div>
+            <!-- Center Year divider -->
+            <div class="widget-center-block">
+                <div class="widget-line"></div>
+                <span class="widget-year" id="widgetYear">----</span>
+            </div>
+            <!-- Time block -->
+            <div class="widget-time-block">
+                <span class="widget-time-large" id="widgetTime">--:--</span>
+                <div class="widget-time-stack">
+                    <span class="widget-ampm" id="widgetAmpm">--</span>
+                    <span class="widget-sec" id="widgetSec">:--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-location-container" id="navLocation" title="Click to refresh location">
+            <i class="fas fa-map-marker-alt location-dot-pulse"></i>
+            <div class="location-stack">
+                <span class="location-label">Deliver to</span>
+                <span class="location-value" id="navLocationAddress">Detecting...</span>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="icons">
+            <div class="nav-dropdown-wrapper">
+                <a href="#" class="login-btn dropdown-toggle">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span id="navAccountText">Login</span>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <a href="#" class="dropdown-item" id="dropdownLoginBtn"><i class="fas fa-sign-in-alt"></i> Login / Register</a>
+                    <a href="profile.html" class="dropdown-item logged-in-only"><i class="fas fa-user-circle"></i> My Profile</a>
+                    <a href="orders.html" class="dropdown-item logged-in-only"><i class="fas fa-boxes"></i> My Orders</a>
+                    <a href="#" class="dropdown-item wishlist-link"><i class="fas fa-heart"></i> Wishlist (<span id="wishlist-count-dropdown">0</span>)</a>
+                    <a href="#" class="dropdown-item logged-in-only" id="dropdownSignOutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                </div>
+            </div>
+
+            <a href="#" class="cart-link">
+                <div class="icon-wrapper">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </div>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="category-navbar">
+        <ul>
+            <li><a href="products.html?category=Mobiles" class="category-link"><span class="category-icon-wrapper" data-category="Mobiles"></span>Mobiles</a></li>
+            <li><a href="products.html?category=Laptops" class="category-link"><span class="category-icon-wrapper" data-category="Laptops"></span>Laptops</a></li>
+            <li><a href="products.html?category=Electronics" class="category-link"><span class="category-icon-wrapper" data-category="Electronics"></span>Electronics</a></li>
+            <li><a href="products.html?category=Fashion" class="category-link"><span class="category-icon-wrapper" data-category="Fashion"></span>Fashion</a></li>
+            <li><a href="products.html?category=Footwear" class="category-link"><span class="category-icon-wrapper" data-category="Footwear"></span>Footwear</a></li>
+            <li><a href="products.html?category=Watches" class="category-link"><span class="category-icon-wrapper" data-category="Watches"></span>Watches</a></li>
+            <li><a href="products.html?category=Beauty" class="category-link"><span class="category-icon-wrapper" data-category="Beauty"></span>Beauty</a></li>
+            <li><a href="products.html?category=Bags" class="category-link"><span class="category-icon-wrapper" data-category="Bags"></span>Bags</a></li>
+            <li><a href="products.html?category=Home%20%26%20Kitchen" class="category-link"><span class="category-icon-wrapper" data-category="Home & Kitchen"></span>Home & Kitchen</a></li>
+            <li><a href="products.html?category=Furniture" class="category-link"><span class="category-icon-wrapper" data-category="Furniture"></span>Furniture</a></li>
+            <li><a href="products.html?category=Appliances" class="category-link"><span class="category-icon-wrapper" data-category="Appliances"></span>Appliances</a></li>
+            <li><a href="products.html?category=Books" class="category-link"><span class="category-icon-wrapper" data-category="Books"></span>Books</a></li>
+            <li><a href="products.html?category=Gaming" class="category-link"><span class="category-icon-wrapper" data-category="Gaming"></span>Gaming</a></li>
+            <li><a href="products.html?category=Sports" class="category-link"><span class="category-icon-wrapper" data-category="Sports"></span>Sports</a></li>
+            <li><a href="products.html?category=Automotive" class="category-link"><span class="category-icon-wrapper" data-category="Automotive"></span>Automotive</a></li>
+            <li><a href="products.html?category=Baby" class="category-link"><span class="category-icon-wrapper" data-category="Baby"></span>Baby</a></li>
+            <li><a href="products.html?category=Pets" class="category-link"><span class="category-icon-wrapper" data-category="Pets"></span>Pets</a></li>
+            <li><a href="products.html?category=Grocery" class="category-link"><span class="category-icon-wrapper" data-category="Grocery"></span>Grocery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Breadcrumb navigation -->
+<div class="back-home-container">
+    <a href="index.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+</div>
+
+<!-- Dynamic Category Hero Section -->
+<section class="category-hero" id="categoryHero">
+    <h2 id="heroTitle">Category Loading...</h2>
+    <p id="heroTagline">Discover top products at best prices.</p>
+</section>
+
+<!-- Main container for filters and product list -->
+<div class="category-container">
+    
+    <!-- Sidebar Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Filter Sidebar -->
+    <aside class="filter-sidebar" id="filterSidebar">
+        <h3>
+            Filters
+            <button class="close-modal filter-close-btn" id="closeFiltersBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </h3>
+        
+        <!-- Search filter -->
+        <div class="filter-group">
+            <h4>Search</h4>
+            <div class="search-box filter-search-box">
+                <input type="text" id="sidebarSearchInput" class="filter-search-input" placeholder="Filter by name...">
+            </div>
+        </div>
+
+        <!-- Brand Filter (dynamic) -->
+        <div class="filter-group">
+            <h4>Brand</h4>
+            <div id="brandFiltersContainer">
+                <!-- Checklist injected here -->
+            </div>
+        </div>
+
+        <!-- Price range filter -->
+        <div class="filter-group">
+            <h4>Price Range</h4>
+            <div class="price-slider-container">
+                <input type="range" id="priceRangeInput" min="0" max="150000" step="50">
+                <div class="price-values">
+                    <span id="priceMinLabel">₹0</span>
+                    <span id="priceValLabel" class="price-current-value">₹150,000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rating Filter -->
+        <div class="filter-group">
+            <h4>Rating</h4>
+            <label><input type="checkbox" class="rating-filter" value="4"> ⭐⭐⭐⭐ & Above</label>
+            <label><input type="checkbox" class="rating-filter" value="3"> ⭐⭐⭐ & Above</label>
+            <label><input type="checkbox" class="rating-filter" value="2"> ⭐⭐ & Above</label>
+        </div>
+
+        <!-- Availability Filter -->
+        <div class="filter-group">
+            <h4>Availability</h4>
+            <label><input type="checkbox" id="stockFilter"> In Stock Only</label>
+        </div>
+
+        <button class="buy-btn clear-filters-btn" id="clearFiltersBtn">
+            Clear All Filters
+        </button>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="category-content">
+        
+        <!-- Controls bar -->
+        <div class="controls-bar">
+            <div class="product-count-text" id="productCountText">
+                Showing 0 of 0 products
+            </div>
+            
+            <div class="controls-actions">
+                <button class="filter-toggle-btn" id="filterToggleBtn">
+                    <i class="fas fa-filter"></i> Filters
+                </button>
+
+                <div class="sort-container">
+                    <label for="sortSelect">Sort By:</label>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="popular">Popularity</option>
+                        <option value="priceLowHigh">Price: Low to High</option>
+                        <option value="priceHighLow">Price: High to Low</option>
+                        <option value="discount">Highest Discount</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="categoryProductGrid">
+            <!-- Cards loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state hidden-state" id="emptyState">
+            <i class="fas fa-box-open"></i>
+            <h3>No Products Found</h3>
+            <p>Try adjusting your search filters to find what you're looking for.</p>
+        </div>
+
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>ApNAshOp</h3>
+            <p>
+                Your One-Stop Online Shopping Destination.
+                Discover amazing deals on electronics,
+                fashion, home essentials and more.
+            </p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a><br>
+            <a href="products.html">Shop</a><br>
+            <a href="products.html">Offers</a><br>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h3>Customer Support</h3>
+            <a href="orders.html">Track Order</a><br>
+            <a href="orders.html">Returns</a><br>
+            <a href="profile.html">Help Center</a><br>
+            <a href="profile.html">FAQs</a>
+        </div>
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Subscribe</h3>
+            <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+            <form class="footer-subscribe-form">
+                <input type="email" placeholder="Enter your email" required class="subscribe-input">
+                <button type="submit" class="subscribe-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 ApNAshOp | All Rights Reserved
+    </div>
+</footer>
+
+<!-- Auth Modal Overlay -->
+<div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal-card" id="authCard">
+        <button class="auth-close-btn" id="closeAuthBtn" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Form: Sign Up (Register) -->
+        <div class="auth-form-container sign-up-container">
+            <form id="signUpForm">
+                <h2>Create new account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="regName">Name</label>
+                    <input type="text" id="regName" required placeholder="John Doe">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" required placeholder="yourname@gmail.com">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPhone">Contact Number</label>
+                    <input type="tel" id="regPhone" required placeholder="9876543210">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required placeholder="••••••••">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label>Signing As</label>
+                    <div class="auth-radio-group">
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="buyer" checked>
+                            <span class="auth-custom-radio"></span>
+                            Buyer
+                        </label>
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="supplier">
+                            <span class="auth-custom-radio"></span>
+                            Supplier
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN UP</button>
+                
+                <p class="auth-terms">By registering, you agree to the <a href="#">Terms and Conditions</a></p>
+                
+                <p class="auth-switch-text">Already registered? <a href="#" id="toSignInBtn">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Form: Sign In (Login) -->
+        <div class="auth-form-container sign-in-container">
+            <form id="signInForm">
+                <h2>Sign in to account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="loginUser">Email / Contact Number</label>
+                    <input type="text" id="loginUser" required placeholder="yourname@gmail.com or Phone number">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN IN</button>
+                
+                <p class="auth-switch-text">Don't have an account? <a href="#" id="toSignUpBtn">Sign Up</a></p>
+            </form>
+        </div>
+        
+        <!-- Sliding Banner Panel -->
+        <div class="auth-overlay-container">
+            <div class="auth-overlay-sliding">
+                <!-- Overlay Left -->
+                <div class="auth-overlay-panel auth-overlay-left">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+                <!-- Overlay Right -->
+                <div class="auth-overlay-panel auth-overlay-right">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Side Drawer -->
+<div class="drawer-overlay" id="cartDrawerOverlay">
+    <div class="side-drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="drawer-close-btn" id="closeCartDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="cartDrawerBody">
+            <!-- Dynamic Cart Items -->
+        </div>
+        <div class="drawer-footer">
+            <div class="drawer-subtotal">
+                <span>Subtotal:</span>
+                <span class="drawer-subtotal-val" id="cartSubtotal">₹0</span>
+            </div>
+            <button class="drawer-checkout-btn" id="checkoutBtn">Checkout Now</button>
+            <button class="drawer-clear-btn" id="clearCartBtn">Clear Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Wishlist Side Drawer -->
+<div class="drawer-overlay" id="wishlistDrawerOverlay">
+    <div class="side-drawer" id="wishlistDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-heart wishlist-title-icon"></i> Your Wishlist</h3>
+            <button class="drawer-close-btn" id="closeWishlistDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="wishlistDrawerBody">
+            <!-- Dynamic Wishlist Items -->
+        </div>
+        <div class="drawer-footer">
+            <button class="drawer-clear-btn" id="closeWishlistFooterBtn">Close Wishlist</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/products.js" defer></script>
+<script src="../js/cart.js?v=2.0" defer></script>
+<script src="../js/script.js?v=2.0" defer></script>
+</body>
+</html>

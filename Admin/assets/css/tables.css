@@ -1,0 +1,219 @@
+/* Premium Data Tables */
+.card-header-table-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.search-box-container {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+}
+
+.search-box-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.table-search-input {
+    width: 100%;
+    padding: 10px 14px 10px 42px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.table-search-input:focus {
+    background-color: var(--bg-card);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.table-actions-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-responsive-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+}
+
+.data-table-element {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.data-table-element th {
+    background-color: var(--bg-primary);
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 14px 18px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1.5px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.data-table-element td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    vertical-align: middle;
+    transition: var(--transition-smooth);
+}
+
+.data-table-element tbody tr {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.data-table-element tbody tr:hover {
+    background-color: var(--primary-light);
+}
+
+.data-table-element tbody tr.row-selected {
+    background-color: #eff6ff; /* light blue tint for checked row */
+}
+
+/* Custom checkbox elements inside table */
+input[type="checkbox"].table-row-select-all,
+input[type="checkbox"].table-row-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border-color-hover);
+    outline: none;
+    cursor: pointer;
+    accent-color: var(--accent-blue);
+    transition: var(--transition-smooth);
+}
+
+/* Table Item details block (avatar + text) */
+.table-item-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-item-image {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background-color: var(--primary-light);
+}
+
+.table-item-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.table-item-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Pagination Styles */
+.table-pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pagination-count-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.pagination-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Platform Badges (as seen in the table list in the image: Shopee, Tiktok, Tokopedia) */
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.platform-badge-shopee {
+    color: #ff5722;
+}
+
+.platform-badge-tiktok {
+    color: #000000;
+}
+
+.platform-badge-tokopedia {
+    color: #4caf50;
+}
+
+.platform-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* Actions cell alignment */
+.actions-cell-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.action-row-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-smooth);
+}
+
+.action-row-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--border-color);
+}
+
+.action-row-btn.delete-action:hover {
+    color: var(--danger);
+    background-color: var(--danger-light);
+}

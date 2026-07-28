@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Report - ApnaShop Admin</title>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tables.css">
+    <link rel="stylesheet" href="../assets/css/forms.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+</head>
+<body>
+    <div id="app-container" class="dashboard-shell-layout">
+        <!-- Sidebar and Header injected dynamically by main.js -->
+        <main class="content-wrapper" id="content-container">
+            <div class="page-header-section animate-fade-in">
+                <div class="header-title-area">
+                    <span class="breadcrumbs-label">Reports / Revenue Report</span>
+                    <h1 class="page-title-text">Revenue Report</h1>
+                </div>
+                <div class="header-actions-area">
+                    <button class="btn btn-secondary-outline" id="download-report-pdf"><i class="ri-file-pdf-line"></i> Download PDF</button>
+                </div>
+            </div>
+            
+            <div class="page-content-area animate-fade-in">
+                
+        <div class="grid-4-columns mb-6">
+            <div class="card metric-mini-card">
+                <span class="metric-title-muted">Total Views</span>
+                <h2 class="metric-big-number">45,291</h2>
+                <span class="trend-badge positive"><i class="ri-arrow-right-up-line"></i> +12.4%</span>
+            </div>
+            <div class="card metric-mini-card">
+                <span class="metric-title-muted">Conversion Rate</span>
+                <h2 class="metric-big-number">3.12%</h2>
+                <span class="trend-badge positive"><i class="ri-arrow-right-up-line"></i> +0.5%</span>
+            </div>
+            <div class="card metric-mini-card">
+                <span class="metric-title-muted">Bounce Rate</span>
+                <h2 class="metric-big-number">42.1%</h2>
+                <span class="trend-badge negative"><i class="ri-arrow-right-down-line"></i> -2.1%</span>
+            </div>
+            <div class="card metric-mini-card">
+                <span class="metric-title-muted">Average Session</span>
+                <h2 class="metric-big-number">4m 12s</h2>
+                <span class="trend-badge positive"><i class="ri-arrow-right-up-line"></i> +8.1%</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header-table-controls">
+                <h3 class="card-title-sub">Revenue Report Trend</h3>
+                <div class="pagination-buttons-group">
+                    <button class="btn btn-secondary-outline py-1 px-3 text-sm active">7 Days</button>
+                    <button class="btn btn-secondary-outline py-1 px-3 text-sm">30 Days</button>
+                    <button class="btn btn-secondary-outline py-1 px-3 text-sm">Year</button>
+                </div>
+            </div>
+            <div class="chart-canvas-wrapper" style="height: 350px; position: relative;">
+                <canvas id="report-chart"></canvas>
+            </div>
+        </div>
+        
+            </div>
+        </main>
+    </div>
+    
+    <!-- Core JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../assets/js/charts.js"></script>
+</body>
+</html>

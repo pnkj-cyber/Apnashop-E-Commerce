@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - ApnaShop</title>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core & Form Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/forms.css">
+    
+    <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+<body>
+    <div class="auth-layout-container">
+        <!-- Decorative Orbs -->
+        <div class="auth-bg-orb-blue"></div>
+        <div class="auth-bg-orb-orange"></div>
+
+        <!-- Auth login card container -->
+        <div class="auth-card">
+            <div class="auth-logo-header">
+                <div class="auth-logo-box">S</div>
+                <h2>Welcome Back!</h2>
+                <p>Log in to access your ApnaShop administrator panel</p>
+            </div>
+
+            <form class="admin-standard-form" id="admin-login-form-element">
+                <!-- Username field -->
+                <div class="form-group-item">
+                    <label class="form-label-text">Email Address</label>
+                    <div class="input-icon-wrapper">
+                        <i class="ri-mail-line input-icon-field"></i>
+                        <input type="email" class="form-input-element auth-input-style" placeholder="admin@apnashop.com" value="admin@apnashop.com" required>
+                    </div>
+                </div>
+
+                <!-- Password field -->
+                <div class="form-group-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label class="form-label-text">Password</label>
+                        <a href="#" style="font-size: 0.75rem; color: var(--accent-blue); text-decoration: none; font-weight: 600;">Forgot?</a>
+                    </div>
+                    <div class="input-icon-wrapper">
+                        <i class="ri-lock-2-line input-icon-field"></i>
+                        <input type="password" class="form-input-element auth-input-style" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" value="password123" required>
+                    </div>
+                </div>
+
+                <!-- Remember me switch -->
+                <div class="form-group-item" style="margin-top: 4px;">
+                    <label class="form-toggle-switch-label">
+                        <input type="checkbox" class="form-toggle-checkbox-input" checked>
+                        <span class="form-toggle-slider-pill"></span>
+                        <span class="form-toggle-text-span">Keep me signed in</span>
+                    </label>
+                </div>
+
+                <!-- Submit trigger -->
+                <button type="submit" class="btn-login">
+                    <span>Access Dashboard</span>
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </form>
+
+            <div class="auth-footer-help">
+                <span>Not an administrator? <a href="../../html/index.html">Go to storefront</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JavaScript -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

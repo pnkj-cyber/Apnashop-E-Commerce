@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApNASHOp - Secure Checkout</title>
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>
+                <a href="index.html" class="logo-link">
+                    <span class="apna">ApNA</span>
+                    <span class="shop">sHOp</span>
+                </a>
+            </h1>
+        </div>
+
+        <div class="nav-datetime-container" id="navLinks">
+            <!-- Date block -->
+            <div class="widget-date-block">
+                <span class="widget-date-large" id="widgetDate">--/--</span>
+                <div class="widget-date-stack">
+                    <span class="widget-day" id="widgetDay">---</span>
+                    <span class="widget-month" id="widgetMonth">---</span>
+                </div>
+            </div>
+            <!-- Center Year divider -->
+            <div class="widget-center-block">
+                <div class="widget-line"></div>
+                <span class="widget-year" id="widgetYear">----</span>
+            </div>
+            <!-- Time block -->
+            <div class="widget-time-block">
+                <span class="widget-time-large" id="widgetTime">--:--</span>
+                <div class="widget-time-stack">
+                    <span class="widget-ampm" id="widgetAmpm">--</span>
+                    <span class="widget-sec" id="widgetSec">:--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-location-container" id="navLocation" title="Click to refresh location">
+            <i class="fas fa-map-marker-alt location-dot-pulse"></i>
+            <div class="location-stack">
+                <span class="location-label">Deliver to</span>
+                <span class="location-value" id="navLocationAddress">Detecting...</span>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="icons">
+            <div class="nav-dropdown-wrapper">
+                <a href="#" class="login-btn dropdown-toggle">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span id="navAccountText">Login</span>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <a href="#" class="dropdown-item" id="dropdownLoginBtn"><i class="fas fa-sign-in-alt"></i> Login / Register</a>
+                    <a href="profile.html" class="dropdown-item logged-in-only"><i class="fas fa-user-circle"></i> My Profile</a>
+                    <a href="orders.html" class="dropdown-item logged-in-only"><i class="fas fa-boxes"></i> My Orders</a>
+                    <a href="#" class="dropdown-item wishlist-link"><i class="fas fa-heart"></i> Wishlist (<span id="wishlist-count-dropdown">0</span>)</a>
+                    <a href="#" class="dropdown-item logged-in-only" id="dropdownSignOutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                </div>
+            </div>
+
+            <a href="#" class="cart-link">
+                <div class="icon-wrapper">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </div>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="category-navbar">
+        <ul>
+            <li><a href="products.html?category=Mobiles" class="category-link"><span class="category-icon-wrapper" data-category="Mobiles"></span>Mobiles</a></li>
+            <li><a href="products.html?category=Laptops" class="category-link"><span class="category-icon-wrapper" data-category="Laptops"></span>Laptops</a></li>
+            <li><a href="products.html?category=Electronics" class="category-link"><span class="category-icon-wrapper" data-category="Electronics"></span>Electronics</a></li>
+            <li><a href="products.html?category=Fashion" class="category-link"><span class="category-icon-wrapper" data-category="Fashion"></span>Fashion</a></li>
+            <li><a href="products.html?category=Footwear" class="category-link"><span class="category-icon-wrapper" data-category="Footwear"></span>Footwear</a></li>
+            <li><a href="products.html?category=Watches" class="category-link"><span class="category-icon-wrapper" data-category="Watches"></span>Watches</a></li>
+            <li><a href="products.html?category=Beauty" class="category-link"><span class="category-icon-wrapper" data-category="Beauty"></span>Beauty</a></li>
+            <li><a href="products.html?category=Bags" class="category-link"><span class="category-icon-wrapper" data-category="Bags"></span>Bags</a></li>
+            <li><a href="products.html?category=Home%20%26%20Kitchen" class="category-link"><span class="category-icon-wrapper" data-category="Home & Kitchen"></span>Home & Kitchen</a></li>
+            <li><a href="products.html?category=Furniture" class="category-link"><span class="category-icon-wrapper" data-category="Furniture"></span>Furniture</a></li>
+            <li><a href="products.html?category=Appliances" class="category-link"><span class="category-icon-wrapper" data-category="Appliances"></span>Appliances</a></li>
+            <li><a href="products.html?category=Books" class="category-link"><span class="category-icon-wrapper" data-category="Books"></span>Books</a></li>
+            <li><a href="products.html?category=Gaming" class="category-link"><span class="category-icon-wrapper" data-category="Gaming"></span>Gaming</a></li>
+            <li><a href="products.html?category=Sports" class="category-link"><span class="category-icon-wrapper" data-category="Sports"></span>Sports</a></li>
+            <li><a href="products.html?category=Automotive" class="category-link"><span class="category-icon-wrapper" data-category="Automotive"></span>Automotive</a></li>
+            <li><a href="products.html?category=Baby" class="category-link"><span class="category-icon-wrapper" data-category="Baby"></span>Baby</a></li>
+            <li><a href="products.html?category=Pets" class="category-link"><span class="category-icon-wrapper" data-category="Pets"></span>Pets</a></li>
+            <li><a href="products.html?category=Grocery" class="category-link"><span class="category-icon-wrapper" data-category="Grocery"></span>Grocery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Breadcrumb -->
+<div class="back-home-container">
+    <a href="cart.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Return to Cart
+    </a>
+</div>
+
+<!-- Checkout Layout -->
+<div class="checkout-layout">
+    <!-- Left Panel: Billing Form & Success View -->
+    <div class="checkout-form-panel">
+        
+        <!-- Form View -->
+        <div id="checkoutFormView">
+            <h2 style="margin-bottom: 25px; color: var(--navy-blue); font-size: 26px; border-bottom: 2.5px solid #f1f5f9; padding-bottom: 12px;">
+                Secure Shipping Checkout
+            </h2>
+            
+            <form class="checkout-form" id="checkoutPageForm" style="display:flex; flex-direction:column; gap:20px;">
+                <div class="checkout-section-title">1. Shipping Information</div>
+                
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="checkoutName">Full Name</label>
+                    <input type="text" id="checkoutName" required placeholder="John Doe">
+                </div>
+
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="checkoutEmail">Email Address</label>
+                    <input type="email" id="checkoutEmail" required placeholder="john@example.com">
+                </div>
+
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="checkoutPhone">Phone Number</label>
+                    <input type="tel" id="checkoutPhone" required placeholder="9876543210">
+                </div>
+
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="checkoutAddress">Delivery Address</label>
+                    <div style="display:flex; gap:10px; width:100%;">
+                        <input type="text" id="checkoutAddress" required placeholder="Flat, Street, Landmark, Area" style="flex:1;">
+                        <button type="button" id="detectCheckoutLocationBtn" class="buy-btn" style="margin:0; padding:12px 18px; display:flex; align-items:center; gap:8px; width:fit-content; background:var(--navy-blue);">
+                            <i class="fas fa-map-marker-alt"></i> Detect
+                        </button>
+                    </div>
+                </div>
+
+                <div class="checkout-section-title" style="margin-top: 15px;">2. Payment Method</div>
+                
+                <div class="payment-method-options">
+                    <div class="payment-method-card selected" data-method="Cash on Delivery">
+                        <i class="fas fa-money-bill-alt" style="font-size: 20px; color: var(--green-success);"></i>
+                        <div style="flex:1;">
+                            <h4 style="font-size: 14px; color: var(--navy-blue);">Cash on Delivery (COD)</h4>
+                            <p style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Pay with cash when package is delivered</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-method-card" data-method="UPI / QR Code">
+                        <i class="fas fa-qrcode" style="font-size: 20px; color: var(--orange-primary);"></i>
+                        <div style="flex:1;">
+                            <h4 style="font-size: 14px; color: var(--navy-blue);">UPI / QR Code Scanner</h4>
+                            <p style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Scan dynamically generated QR code instantly</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-method-card" data-method="Credit/Debit Card">
+                        <i class="fas fa-credit-card" style="font-size: 20px; color: #3b82f6;"></i>
+                        <div style="flex:1;">
+                            <h4 style="font-size: 14px; color: var(--navy-blue);">Credit / Debit Card</h4>
+                            <p style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Visa, Mastercard, RuPay, Maestro accepted</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn" id="submitOrderBtn" style="width:100%; height:50px; background:var(--orange-primary); color:white; border:none; border-radius:10px; font-weight:700; font-size:16px; cursor:pointer; box-shadow:0 10px 20px rgba(255,140,0,0.2); transition:var(--transition); margin-top:20px;">
+                    Place Order Now
+                </button>
+            </form>
+        </div>
+
+        <!-- Success View (Hidden by default, triggered by checkout.js) -->
+        <div id="checkoutSuccessView" class="checkout-success-view" style="display: none; text-align: center; padding: 40px 20px;">
+            <i class="fas fa-check-circle" style="font-size: 72px; color: var(--green-success); margin-bottom: 20px;"></i>
+            <h2 style="font-size: 28px; color: var(--navy-blue); margin-bottom: 10px;">Order Placed Successfully!</h2>
+            <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 25px; line-height: 1.6;">
+                Thank you for shopping with us! Your order has been registered in our system and is currently being processed.
+            </p>
+            <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1.5px dashed #cbd5e1; display: inline-block; margin-bottom: 30px;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--navy-accent); text-transform: uppercase;">Your Tracking ID:</span>
+                <div id="orderIdText" style="font-size: 28px; font-weight: 800; color: var(--orange-primary); margin-top: 5px;">#APN-000000</div>
+            </div>
+            <div>
+                <button class="buy-btn success-close-btn" id="successCloseBtn" style="padding: 14px 40px; font-size: 16px;">
+                    Go to Order History
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel: Order Summary Card -->
+    <div class="checkout-order-summary-panel">
+        <h3 class="summary-title" style="margin-bottom: 15px; border-bottom: 1.5px solid #f1f5f9; padding-bottom: 8px;">
+            Items in Order
+        </h3>
+        
+        <div id="checkoutOrderItems" style="display:flex; flex-direction:column; gap:12px; max-height:360px; overflow-y:auto; padding-right:5px;">
+            <!-- Dynamically populated products list -->
+        </div>
+
+        <div style="margin-top: 15px; display:flex; flex-direction:column; gap:10px; border-top: 1.5px solid #f1f5f9; padding-top:15px;">
+            <div class="summary-row">
+                <span>Subtotal Price</span>
+                <span id="checkoutSubtotal">₹0</span>
+            </div>
+            
+            <div class="summary-row">
+                <span>Delivery Charges</span>
+                <span style="color: var(--green-success); font-weight: 700;">FREE</span>
+            </div>
+
+            <div class="summary-row" id="checkoutDiscountRow" style="display: none; color: var(--red-discount); font-weight: 700;">
+                <span>Coupon Applied</span>
+                <span id="checkoutDiscount">-₹0</span>
+            </div>
+
+            <div class="summary-row total-row" style="margin-top: 5px;">
+                <span>Total Amount</span>
+                <span id="checkoutTotal" style="color:var(--orange-primary); font-weight:800;">₹0</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>ApNAshOp</h3>
+            <p>
+                Your One-Stop Online Shopping Destination.
+                Discover amazing deals on electronics,
+                fashion, home essentials and more.
+            </p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a><br>
+            <a href="products.html">Shop</a><br>
+            <a href="products.html">Offers</a><br>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h3>Customer Support</h3>
+            <a href="orders.html">Track Order</a><br>
+            <a href="orders.html">Returns</a><br>
+            <a href="profile.html">Help Center</a><br>
+            <a href="profile.html">FAQs</a>
+        </div>
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Subscribe</h3>
+            <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+            <form class="footer-subscribe-form">
+                <input type="email" placeholder="Enter your email" required class="subscribe-input">
+                <button type="submit" class="subscribe-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 ApNAshOp | All Rights Reserved
+    </div>
+</footer>
+
+<!-- Auth Modal Overlay -->
+<div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal-card" id="authCard">
+        <button class="auth-close-btn" id="closeAuthBtn" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Form: Sign Up (Register) -->
+        <div class="auth-form-container sign-up-container">
+            <form id="signUpForm">
+                <h2>Create new account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="regName">Name</label>
+                    <input type="text" id="regName" required placeholder="John Doe">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" required placeholder="yourname@gmail.com">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPhone">Contact Number</label>
+                    <input type="tel" id="regPhone" required placeholder="9876543210">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required placeholder="••••••••">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label>Signing As</label>
+                    <div class="auth-radio-group">
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="buyer" checked>
+                            <span class="auth-custom-radio"></span>
+                            Buyer
+                        </label>
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="supplier">
+                            <span class="auth-custom-radio"></span>
+                            Supplier
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN UP</button>
+                
+                <p class="auth-terms">By registering, you agree to the <a href="#">Terms and Conditions</a></p>
+                
+                <p class="auth-switch-text">Already registered? <a href="#" id="toSignInBtn">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Form: Sign In (Login) -->
+        <div class="auth-form-container sign-in-container">
+            <form id="signInForm">
+                <h2>Sign in to account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="loginUser">Email / Contact Number</label>
+                    <input type="text" id="loginUser" required placeholder="yourname@gmail.com or Phone number">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN IN</button>
+                
+                <p class="auth-switch-text">Don't have an account? <a href="#" id="toSignUpBtn">Sign Up</a></p>
+            </form>
+        </div>
+        
+        <!-- Sliding Banner Panel -->
+        <div class="auth-overlay-container">
+            <div class="auth-overlay-sliding">
+                <!-- Overlay Left -->
+                <div class="auth-overlay-panel auth-overlay-left">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+                <!-- Overlay Right -->
+                <div class="auth-overlay-panel auth-overlay-right">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Side drawers (Included for consistency) -->
+<div class="drawer-overlay" id="cartDrawerOverlay">
+    <div class="side-drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="drawer-close-btn" id="closeCartDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="cartDrawerBody">
+            <!-- Dynamic Cart Items -->
+        </div>
+        <div class="drawer-footer">
+            <div class="drawer-subtotal">
+                <span>Subtotal:</span>
+                <span class="drawer-subtotal-val" id="cartSubtotal">₹0</span>
+            </div>
+            <button class="drawer-checkout-btn" id="checkoutBtn">Checkout Now</button>
+            <button class="drawer-clear-btn" id="clearCartBtn">Clear Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="drawer-overlay" id="wishlistDrawerOverlay">
+    <div class="side-drawer" id="wishlistDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-heart wishlist-title-icon"></i> Your Wishlist</h3>
+            <button class="drawer-close-btn" id="closeWishlistDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="wishlistDrawerBody">
+            <!-- Dynamic Wishlist Items -->
+        </div>
+        <div class="drawer-footer">
+            <button class="drawer-clear-btn" id="closeWishlistFooterBtn">Close Wishlist</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/products.js" defer></script>
+<script src="../js/cart.js?v=2.0" defer></script>
+<script src="../js/checkout.js" defer></script>
+<script src="../js/script.js?v=2.0" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Populate Order Items summary in right panel
+    function renderCheckoutSummary() {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+        const itemsContainer = document.getElementById("checkoutOrderItems");
+        const subtotalEl = document.getElementById("checkoutSubtotal");
+        const discountRow = document.getElementById("checkoutDiscountRow");
+        const discountEl = document.getElementById("checkoutDiscount");
+        const totalEl = document.getElementById("checkoutTotal");
+
+        if (!itemsContainer) return;
+
+        if (cartItems.length === 0) {
+            itemsContainer.innerHTML = '<p style="font-size:13px; color:var(--text-muted); text-align:center; padding: 20px 0;">No items in checkout.</p>';
+            if (subtotalEl) subtotalEl.innerText = "₹0";
+            if (totalEl) totalEl.innerText = "₹0";
+            if (discountRow) discountRow.style.display = "none";
+            return;
+        }
+
+        let html = "";
+        let subtotal = 0;
+
+        cartItems.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+
+            html += `
+                <div class="checkout-product-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="checkout-product-details">
+                        <h4 style="font-weight:700;">${item.name}</h4>
+                        <p>Qty: ${item.quantity} x ₹${item.price.toLocaleString()}</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--navy-blue);">
+                        ₹${itemTotal.toLocaleString()}
+                    </div>
+                </div>
+            `;
+        });
+
+        itemsContainer.innerHTML = html;
+        if (subtotalEl) subtotalEl.innerText = `₹${subtotal.toLocaleString()}`;
+
+        // Retrieve applied coupon discount if any
+        let discount = 0;
+        if (window.appliedCouponCode && window.applyCoupon) {
+            const result = window.applyCoupon(window.appliedCouponCode, subtotal);
+            if (result.success) {
+                discount = result.discount;
+                if (discountRow) discountRow.style.display = "flex";
+                if (discountEl) discountEl.innerText = `-₹${discount.toLocaleString()}`;
+            }
+        } else {
+            // Check if user has global window property set from cart.html redirect
+            if (window.appliedDiscount) {
+                discount = window.appliedDiscount;
+                if (discountRow) discountRow.style.display = "flex";
+                if (discountEl) discountEl.innerText = `-₹${discount.toLocaleString()}`;
+            } else {
+                if (discountRow) discountRow.style.display = "none";
+            }
+        }
+
+        const total = subtotal - discount;
+        if (totalEl) totalEl.innerText = `₹${total.toLocaleString()}`;
+    }
+
+    renderCheckoutSummary();
+});
+</script>
+</body>
+</html>

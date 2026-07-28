@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApNASHOp - My Orders</title>
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>
+                <a href="index.html" class="logo-link">
+                    <span class="apna">ApNA</span>
+                    <span class="shop">sHOp</span>
+                </a>
+            </h1>
+        </div>
+
+        <div class="nav-datetime-container" id="navLinks">
+            <!-- Date block -->
+            <div class="widget-date-block">
+                <span class="widget-date-large" id="widgetDate">--/--</span>
+                <div class="widget-date-stack">
+                    <span class="widget-day" id="widgetDay">---</span>
+                    <span class="widget-month" id="widgetMonth">---</span>
+                </div>
+            </div>
+            <!-- Center Year divider -->
+            <div class="widget-center-block">
+                <div class="widget-line"></div>
+                <span class="widget-year" id="widgetYear">----</span>
+            </div>
+            <!-- Time block -->
+            <div class="widget-time-block">
+                <span class="widget-time-large" id="widgetTime">--:--</span>
+                <div class="widget-time-stack">
+                    <span class="widget-ampm" id="widgetAmpm">--</span>
+                    <span class="widget-sec" id="widgetSec">:--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-location-container" id="navLocation" title="Click to refresh location">
+            <i class="fas fa-map-marker-alt location-dot-pulse"></i>
+            <div class="location-stack">
+                <span class="location-label">Deliver to</span>
+                <span class="location-value" id="navLocationAddress">Detecting...</span>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="icons">
+            <div class="nav-dropdown-wrapper">
+                <a href="#" class="login-btn dropdown-toggle">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span id="navAccountText">Login</span>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <a href="#" class="dropdown-item" id="dropdownLoginBtn"><i class="fas fa-sign-in-alt"></i> Login / Register</a>
+                    <a href="profile.html" class="dropdown-item logged-in-only"><i class="fas fa-user-circle"></i> My Profile</a>
+                    <a href="orders.html" class="dropdown-item logged-in-only"><i class="fas fa-boxes"></i> My Orders</a>
+                    <a href="#" class="dropdown-item wishlist-link"><i class="fas fa-heart"></i> Wishlist (<span id="wishlist-count-dropdown">0</span>)</a>
+                    <a href="#" class="dropdown-item logged-in-only" id="dropdownSignOutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                </div>
+            </div>
+
+            <a href="#" class="cart-link">
+                <div class="icon-wrapper">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </div>
+                <span>Cart</span>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="category-navbar">
+        <ul>
+            <li><a href="products.html?category=Mobiles" class="category-link"><span class="category-icon-wrapper" data-category="Mobiles"></span>Mobiles</a></li>
+            <li><a href="products.html?category=Laptops" class="category-link"><span class="category-icon-wrapper" data-category="Laptops"></span>Laptops</a></li>
+            <li><a href="products.html?category=Electronics" class="category-link"><span class="category-icon-wrapper" data-category="Electronics"></span>Electronics</a></li>
+            <li><a href="products.html?category=Fashion" class="category-link"><span class="category-icon-wrapper" data-category="Fashion"></span>Fashion</a></li>
+            <li><a href="products.html?category=Footwear" class="category-link"><span class="category-icon-wrapper" data-category="Footwear"></span>Footwear</a></li>
+            <li><a href="products.html?category=Watches" class="category-link"><span class="category-icon-wrapper" data-category="Watches"></span>Watches</a></li>
+            <li><a href="products.html?category=Beauty" class="category-link"><span class="category-icon-wrapper" data-category="Beauty"></span>Beauty</a></li>
+            <li><a href="products.html?category=Bags" class="category-link"><span class="category-icon-wrapper" data-category="Bags"></span>Bags</a></li>
+            <li><a href="products.html?category=Home%20%26%20Kitchen" class="category-link"><span class="category-icon-wrapper" data-category="Home & Kitchen"></span>Home & Kitchen</a></li>
+            <li><a href="products.html?category=Furniture" class="category-link"><span class="category-icon-wrapper" data-category="Furniture"></span>Furniture</a></li>
+            <li><a href="products.html?category=Appliances" class="category-link"><span class="category-icon-wrapper" data-category="Appliances"></span>Appliances</a></li>
+            <li><a href="products.html?category=Books" class="category-link"><span class="category-icon-wrapper" data-category="Books"></span>Books</a></li>
+            <li><a href="products.html?category=Gaming" class="category-link"><span class="category-icon-wrapper" data-category="Gaming"></span>Gaming</a></li>
+            <li><a href="products.html?category=Sports" class="category-link"><span class="category-icon-wrapper" data-category="Sports"></span>Sports</a></li>
+            <li><a href="products.html?category=Automotive" class="category-link"><span class="category-icon-wrapper" data-category="Automotive"></span>Automotive</a></li>
+            <li><a href="products.html?category=Baby" class="category-link"><span class="category-icon-wrapper" data-category="Baby"></span>Baby</a></li>
+            <li><a href="products.html?category=Pets" class="category-link"><span class="category-icon-wrapper" data-category="Pets"></span>Pets</a></li>
+            <li><a href="products.html?category=Grocery" class="category-link"><span class="category-icon-wrapper" data-category="Grocery"></span>Grocery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Account Dashboard Layout -->
+<div class="account-layout">
+    <!-- Sidebar navigation -->
+    <aside class="account-sidebar">
+        <div class="user-profile-widget">
+            <div class="profile-avatar" id="sideUserInitials">U</div>
+            <h4 id="sideUserName">User Profile</h4>
+            <p id="sideUserEmail">user@example.com</p>
+            <p id="sideUserPhone" style="font-size:12px; color:var(--text-muted); margin-top:5px; font-weight:500; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fas fa-phone-alt" style="font-size:10px; color:var(--green-success);"></i> --</p>
+        </div>
+        
+        <nav class="account-nav-list">
+            <a href="profile.html" class="account-nav-item">
+                <i class="fas fa-user-circle"></i> Profile Details
+            </a>
+            <a href="orders.html" class="account-nav-item active">
+                <i class="fas fa-boxes"></i> Order History
+            </a>
+            <a href="#" class="account-nav-item" id="accountSignOutBtn" style="color: var(--red-discount); margin-top:20px; border-top:1.5px solid #f1f5f9; border-radius:0; padding-top:15px;">
+                <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="account-content-card">
+        <h2 style="margin-bottom: 25px; color: var(--navy-blue); font-size: 26px; border-bottom: 2.5px solid #f1f5f9; padding-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
+            <span>Order History</span>
+            <button class="buy-btn" id="clearOrdersBtn" style="margin:0; padding: 6px 14px; font-size:12px; background:var(--red-discount);">
+                Clear History
+            </button>
+        </h2>
+
+        <div id="ordersListContainer">
+            <!-- Dynamic order cards injected here -->
+        </div>
+
+        <div class="empty-state hidden-state" id="ordersEmptyState" style="border:none; box-shadow:none; padding:40px 0;">
+            <i class="fas fa-boxes" style="font-size: 48px; color: var(--text-muted); margin-bottom: 15px;"></i>
+            <h3>No Orders Found</h3>
+            <p>You haven't placed any orders yet. Check out our catalog to find exciting offers!</p>
+            <a href="products.html" class="buy-btn" style="text-decoration:none; display:inline-block; margin-top:20px; padding: 12px 35px;">
+                Start Shopping
+            </a>
+        </div>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>ApNAshOp</h3>
+            <p>
+                Your One-Stop Online Shopping Destination.
+                Discover amazing deals on electronics,
+                fashion, home essentials and more.
+            </p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a><br>
+            <a href="products.html">Shop</a><br>
+            <a href="products.html">Offers</a><br>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h3>Customer Support</h3>
+            <a href="orders.html">Track Order</a><br>
+            <a href="orders.html">Returns</a><br>
+            <a href="profile.html">Help Center</a><br>
+            <a href="profile.html">FAQs</a>
+        </div>
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Subscribe</h3>
+            <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+            <form class="footer-subscribe-form">
+                <input type="email" placeholder="Enter your email" required class="subscribe-input">
+                <button type="submit" class="subscribe-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 ApNAshOp | All Rights Reserved
+    </div>
+</footer>
+
+<!-- Side drawers (Included for consistency) -->
+<div class="drawer-overlay" id="cartDrawerOverlay">
+    <div class="side-drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="drawer-close-btn" id="closeCartDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="cartDrawerBody">
+            <!-- Dynamic Cart Items -->
+        </div>
+        <div class="drawer-footer">
+            <div class="drawer-subtotal">
+                <span>Subtotal:</span>
+                <span class="drawer-subtotal-val" id="cartSubtotal">₹0</span>
+            </div>
+            <button class="drawer-checkout-btn" id="checkoutBtn">Checkout Now</button>
+            <button class="drawer-clear-btn" id="clearCartBtn">Clear Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="drawer-overlay" id="wishlistDrawerOverlay">
+    <div class="side-drawer" id="wishlistDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-heart wishlist-title-icon"></i> Your Wishlist</h3>
+            <button class="drawer-close-btn" id="closeWishlistDrawerBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="wishlistDrawerBody">
+            <!-- Dynamic Wishlist Items -->
+        </div>
+        <div class="drawer-footer">
+            <button class="drawer-clear-btn" id="closeWishlistFooterBtn">Close Wishlist</button>
+        </div>
+    </div>
+</div>
+
+<!-- Auth Modal Overlay -->
+<div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal-card" id="authCard">
+        <button class="auth-close-btn" id="closeAuthBtn" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Form: Sign Up (Register) -->
+        <div class="auth-form-container sign-up-container">
+            <form id="signUpForm">
+                <h2>Create new account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="regName">Name</label>
+                    <input type="text" id="regName" required placeholder="John Doe">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" required placeholder="yourname@gmail.com">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPhone">Contact Number</label>
+                    <input type="tel" id="regPhone" required placeholder="9876543210">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required placeholder="••••••••">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label>Signing As</label>
+                    <div class="auth-radio-group">
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="buyer" checked>
+                            <span class="auth-custom-radio"></span>
+                            Buyer
+                        </label>
+                        <label class="auth-radio-label">
+                            <input type="radio" name="regUserType" value="supplier">
+                            <span class="auth-custom-radio"></span>
+                            Supplier
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN UP</button>
+                
+                <p class="auth-terms">By registering, you agree to the <a href="#">Terms and Conditions</a></p>
+                
+                <p class="auth-switch-text">Already registered? <a href="#" id="toSignInBtn">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Form: Sign In (Login) -->
+        <div class="auth-form-container sign-in-container">
+            <form id="signInForm">
+                <h2>Sign in to account</h2>
+                
+                <div class="auth-field-group">
+                    <label for="loginUser">Email / Contact Number</label>
+                    <input type="text" id="loginUser" required placeholder="yourname@gmail.com or Phone number">
+                </div>
+                
+                <div class="auth-field-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="auth-btn">SIGN IN</button>
+                
+                <p class="auth-switch-text">Don't have an account? <a href="#" id="toSignUpBtn">Sign Up</a></p>
+            </form>
+        </div>
+        
+        <!-- Sliding Banner Panel -->
+        <div class="auth-overlay-container">
+            <div class="auth-overlay-sliding">
+                <!-- Overlay Left -->
+                <div class="auth-overlay-panel auth-overlay-left">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+                <!-- Overlay Right -->
+                <div class="auth-overlay-panel auth-overlay-right">
+                    <div class="auth-ill-container">
+                        <div class="ill-globe">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="ill-cart-wrapper">
+                            <div class="ill-boxes">
+                                <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                            </div>
+                            <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                        </div>
+                        <div class="ill-dashed-line"></div>
+                    </div>
+                    <h1>Get all your buying problems solved today</h1>
+                    <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/products.js" defer></script>
+<script src="../js/cart.js?v=2.0" defer></script>
+<script src="../js/script.js?v=2.0" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Authenticate user using JWT token
+    const token = localStorage.getItem("token");
+    if (!token) {
+        alert("Please login to view your order history.");
+        window.location.href = "index.html";
+        return;
+    }
+
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+        // Populate Sidebar UI
+        const sideInitials = document.getElementById("sideUserInitials");
+        if (sideInitials && user.name) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+            sideInitials.innerText = initials;
+        }
+        document.getElementById("sideUserName").innerText = user.name || "User";
+        document.getElementById("sideUserEmail").innerText = user.email || "";
+        const sideUserPhone = document.getElementById("sideUserPhone");
+        if (sideUserPhone) {
+            sideUserPhone.innerHTML = `<i class="fas fa-phone-alt" style="font-size:10px; color:var(--green-success);"></i> ${user.phone || "--"}`;
+        }
+    }
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
+
+    // 2. Fetch and Render Placed Orders
+    function fetchAndRenderOrders() {
+        const listContainer = document.getElementById("ordersListContainer");
+        const emptyState = document.getElementById("ordersEmptyState");
+        const clearBtn = document.getElementById("clearOrdersBtn");
+
+        if (!listContainer) return;
+
+        // Load local orders from localStorage for permanent backup
+        const localOrders = JSON.parse(localStorage.getItem("localOrders") || "[]");
+
+        fetch('http://localhost:8000/api/orders/', {
+            method: 'GET',
+            headers: headers
+        })
+        .then(res => {
+            if (res.status === 401) {
+                // Graceful fallback to local orders if session is expired or not authenticated
+                return { success: true, orders: [] };
+            }
+            return res.json();
+        })
+        .then(data => {
+            let combined = [];
+            if (data.success && data.orders) {
+                const apiIds = new Set(data.orders.map(o => o.orderId));
+                combined = [...data.orders];
+                localOrders.forEach(o => {
+                    if (!apiIds.has(o.orderId)) {
+                        combined.push(o);
+                    }
+                });
+            } else {
+                combined = localOrders;
+            }
+            renderOrdersList(combined);
+        })
+        .catch(err => {
+            console.error("Error fetching orders:", err);
+            // Fallback to local orders
+            renderOrdersList(localOrders);
+        });
+    }
+
+    function renderOrdersList(orders) {
+        const listContainer = document.getElementById("ordersListContainer");
+        const emptyState = document.getElementById("ordersEmptyState");
+        const clearBtn = document.getElementById("clearOrdersBtn");
+
+        if (orders.length === 0) {
+            listContainer.innerHTML = "";
+            if (emptyState) emptyState.classList.remove("hidden-state");
+            if (clearBtn) clearBtn.style.display = "none";
+            return;
+        }
+
+        if (emptyState) emptyState.classList.add("hidden-state");
+        
+        // Show clear history button only if there are local orders stored
+        const localOrders = JSON.parse(localStorage.getItem("localOrders") || "[]");
+        if (clearBtn) {
+            if (localOrders.length > 0) {
+                clearBtn.style.display = "block";
+            } else {
+                clearBtn.style.display = "none";
+            }
+        }
+
+        let html = "";
+        orders.forEach(order => {
+            let itemsHtml = "";
+            order.items.forEach(item => {
+                itemsHtml += `
+                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                        <img src="${item.image}" alt="${item.name}" style="width:50px; height:50px; border-radius:8px; border:1px solid #cbd5e1; object-fit:cover;">
+                        <div style="flex:1;">
+                            <h5 style="font-size:13px; color:var(--navy-blue); font-weight:700;"><a href="product-detail.html?id=${item.id}" style="text-decoration:none; color:inherit;">${item.name}</a></h5>
+                            <p style="font-size:11px; color:var(--text-muted); margin-top:2px;">Qty: ${item.quantity} x ₹${item.price.toLocaleString()}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Map status classes
+            let statusClass = "status-processing";
+            if (order.status === "Shipped" || order.status === "Dispatched") statusClass = "status-shipped";
+            else if (order.status === "Delivered") statusClass = "status-delivered";
+            else if (order.status === "Out for Delivery") statusClass = "status-shipped";
+
+            html += `
+                <div class="order-history-card">
+                    <div class="order-card-header">
+                        <div>
+                            <span class="order-card-id">${order.orderId}</span>
+                            <span class="order-card-date" style="margin-left:10px;">${order.date}</span>
+                        </div>
+                        <span class="order-card-status ${statusClass}">${order.status}</span>
+                    </div>
+
+                    <div style="border-bottom:1px solid #f1f5f9; padding-bottom:10px;">
+                        ${itemsHtml}
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:20px; font-size:13px;">
+                        <div>
+                            <strong style="color:var(--navy-blue);">Shipping Address:</strong>
+                            <p style="color:#475569; line-height:1.4; margin-top:4px;">${order.shippingAddress}</p>
+                            <strong style="color:var(--navy-blue); display:inline-block; margin-top:10px;">Payment Method:</strong>
+                            <span style="color:#475569;">${order.paymentMethod}</span>
+                        </div>
+                        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
+                            <div style="display:flex; justify-content:space-between; width:150px; color:var(--text-muted);">
+                                <span>Subtotal:</span>
+                                <span>₹${order.subtotal.toLocaleString()}</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; width:150px; color:var(--red-discount); font-weight:600;">
+                                <span>Discount:</span>
+                                <span>-₹${order.discount.toLocaleString()}</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; width:150px; font-size:16px; font-weight:800; color:var(--orange-primary); border-top:1px dashed #cbd5e1; padding-top:6px; margin-top:4px;">
+                                <span>Total:</span>
+                                <span>₹${order.total.toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tracking Timeline -->
+                    <div style="margin-top:15px; border-top:1px solid #f1f5f9; padding-top:15px;">
+                        <h5 style="font-size:12px; color:var(--navy-blue); font-weight:800; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:15px;">
+                            Shipment Tracker
+                        </h5>
+                        <div class="tracker-timeline ${order.progressClass || 'progress-processing'}">
+                            <div class="tracker-step completed">
+                                <div class="tracker-circle"></div>
+                                <span>Placed</span>
+                            </div>
+                            <div class="tracker-step ${order.status === 'Processing' ? 'active' : 'completed'}">
+                                <div class="tracker-circle"></div>
+                                <span>Processing</span>
+                            </div>
+                            <div class="tracker-step ${order.status === 'Dispatched' ? 'active' : (order.status === 'Out for Delivery' || order.status === 'Delivered' ? 'completed' : '')}">
+                                <div class="tracker-circle"></div>
+                                <span>Dispatched</span>
+                            </div>
+                            <div class="tracker-step ${order.status === 'Out for Delivery' ? 'active' : (order.status === 'Delivered' ? 'completed' : '')}">
+                                <div class="tracker-circle"></div>
+                                <span>Out for Delivery</span>
+                            </div>
+                            <div class="tracker-step ${order.status === 'Delivered' ? 'completed' : ''}">
+                                <div class="tracker-circle"></div>
+                                <span>Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        listContainer.innerHTML = html;
+    }
+
+    fetchAndRenderOrders();
+
+    // Sign Out Action
+    const signOutBtn = document.getElementById("accountSignOutBtn");
+    if (signOutBtn) {
+        signOutBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (confirm("Are you sure you want to sign out?")) {
+                localStorage.removeItem("loggedInUser");
+                localStorage.removeItem("token");
+                alert("Signed out successfully.");
+                window.location.href = "index.html";
+            }
+        });
+    }
+
+    // Setup Clear History button action
+    const clearBtn = document.getElementById("clearOrdersBtn");
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            if (confirm("Are you sure you want to clear your local order history? (Database orders won't be deleted)")) {
+                localStorage.removeItem("localOrders");
+                fetchAndRenderOrders();
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

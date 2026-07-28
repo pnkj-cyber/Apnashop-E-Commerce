@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - ApnaShop Admin</title>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+    <link rel="stylesheet" href="./assets/css/tables.css">
+    <link rel="stylesheet" href="./assets/css/forms.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+    <div id="app-container" class="dashboard-shell-layout">
+        <!-- Sidebar and Header are dynamically injected here by main.js -->
+        
+        <main class="content-wrapper animate-fade-in" style="margin-top: var(--header-height);">
+            <!-- Overview metrics row -->
+            <div class="overview-metrics-grid">
+                <!-- Card 1: Total products -->
+                <div class="metric-stat-card">
+                    <div class="metric-icon-box">
+                        <i class="ri-archive-line"></i>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-title-muted">Total products</span>
+                        <div class="metric-value-row">
+                            <span class="metric-big-number">250</span>
+                            <span class="trend-badge positive">
+                                <i class="ri-arrow-up-circle-line"></i> +2.5%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Completed order -->
+                <div class="metric-stat-card">
+                    <div class="metric-icon-box">
+                        <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-title-muted">Completed order</span>
+                        <div class="metric-value-row">
+                            <span class="metric-big-number">124</span>
+                            <span class="trend-badge positive">
+                                <i class="ri-arrow-up-circle-line"></i> +2.5%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Canceled order -->
+                <div class="metric-stat-card">
+                    <div class="metric-icon-box">
+                        <i class="ri-close-circle-line"></i>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-title-muted">Canceled order</span>
+                        <div class="metric-value-row">
+                            <span class="metric-big-number">14</span>
+                            <span class="trend-badge negative">
+                                <i class="ri-arrow-down-circle-line"></i> -1.5%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Top products -->
+                <div class="metric-stat-card">
+                    <div class="metric-icon-box">
+                        <i class="ri-award-line"></i>
+                    </div>
+                    <div class="metric-details">
+                        <span class="metric-title-muted">Top products</span>
+                        <div class="metric-value-row">
+                            <span class="metric-big-number">119</span>
+                            <span class="trend-badge positive">
+                                <i class="ri-arrow-up-circle-line"></i> +2.5%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graph and Carousel Section -->
+            <div class="sales-report-layout-grid">
+                <!-- Sales Report Line Chart Card -->
+                <div class="card" style="position: relative;">
+                    <div class="report-header-controls">
+                        <div class="report-title-label">
+                            <h3>Your sales report</h3>
+                            <p>Look at your sale</p>
+                        </div>
+                        <select class="sales-report-dropdown">
+                            <option value="total">Total Sales</option>
+                            <option value="transactions">Transactions</option>
+                            <option value="units">Products Sold</option>
+                        </select>
+                    </div>
+
+                    <div class="sales-metrics-headline">
+                        <h2 class="sales-headline-amount" id="sales-headline-amount-text">$4,435.70</h2>
+                        <div class="sales-headline-trend">
+                            <span class="trend-badge positive">
+                                <i class="ri-arrow-up-line"></i> +2.5%
+                            </span>
+                            <span class="sales-headline-muted-subtext">vs $2,330.00 last period</span>
+                        </div>
+                    </div>
+
+                    <!-- Time scope selection pill tabs -->
+                    <div class="timeframe-selector-tabs">
+                        <button class="timeframe-pill-btn">1d</button>
+                        <button class="timeframe-pill-btn active">7d</button>
+                        <button class="timeframe-pill-btn">30d</button>
+                        <button class="timeframe-pill-btn">16m</button>
+                        <button class="timeframe-pill-btn">Max</button>
+                    </div>
+
+                    <!-- Graph wrapper -->
+                    <div class="chart-canvas-wrapper" style="height: 260px; position: relative;">
+                        <canvas id="sales-report-chart-canvas"></canvas>
+                        
+                        <!-- Custom positioned popover tooltip -->
+                        <div class="custom-chart-tooltip-bubble" id="chart-tooltip-bubble"></div>
+                    </div>
+                </div>
+
+                <!-- Congratulations slider banner card -->
+                <div class="card promo-congrats-card">
+                    <div class="congrats-header">
+                        <h3>Congratulations! 🎉</h3>
+                        <p>Some of your products already have the highest buyers</p>
+                    </div>
+
+                    <div class="promo-carousel-container">
+                        <!-- Left Navigation Arrow -->
+                        <button class="carousel-nav-btn prev-btn" id="carousel-prev-slide" aria-label="Previous Slide">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </button>
+                        
+                        <!-- Carousel Slide Content -->
+                        <div class="carousel-slide-content">
+                            <div class="carousel-product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=150&auto=format&fit=crop" id="carousel-item-image-source" alt="T-shirt Rainbow White">
+                            </div>
+                            <span class="carousel-product-name" id="carousel-item-name">T-shirt Rainbow White</span>
+                            <span class="carousel-sold-metrics" id="carousel-item-sold">271 sold</span>
+                        </div>
+                        
+                        <!-- Right Navigation Arrow -->
+                        <button class="carousel-nav-btn next-btn" id="carousel-next-slide" aria-label="Next Slide">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last transaction database list -->
+            <div class="card overflow-hidden">
+                <div class="card-header-table-controls">
+                    <h3 class="page-title-text" style="font-size: 1.15rem; margin: 0;">Last transaction</h3>
+                    
+                    <div style="display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end;">
+                        <!-- Table Search -->
+                        <div class="search-box-container" style="max-width: 260px;">
+                            <i class="ri-search-line search-box-icon"></i>
+                            <input type="text" class="table-search-input" placeholder="Search..." id="table-search">
+                        </div>
+                        <!-- Filter action -->
+                        <button class="btn btn-secondary-outline" style="padding: 10px;" aria-label="Filter Transactions">
+                            <i class="ri-filter-3-line" style="font-size: 1rem;"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive-container">
+                    <table class="data-table-element">
+                        <thead>
+                            <tr>
+                                <th style="width: 44px;">
+                                    <input type="checkbox" class="table-row-select-all" id="select-all-rows">
+                                </th>
+                                <th>Order ID</th>
+                                <th>Item</th>
+                                <th>Date</th>
+                                <th>Price</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Row 1: Shopee crop top pants -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="table-row-checkbox">
+                                </td>
+                                <td><span style="font-weight: 500;">CTG0291</span></td>
+                                <td>Crop top pants</td>
+                                <td style="color: var(--text-muted);">12/02/2022</td>
+                                <td><span style="font-weight: 700;">$599</span></td>
+                                <td>
+                                    <span class="platform-badge platform-badge-shopee">
+                                        <span class="brand-logo-icon" style="width: 18px; height: 18px; font-size: 0.6rem; background: #ff5722; color: white; border: none;">S</span>
+                                        Shopee
+                                    </span>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 2: Selected Row - T-shirt rainbow white Tokopedia -->
+                            <tr class="row-selected">
+                                <td>
+                                    <input type="checkbox" class="table-row-checkbox" checked>
+                                </td>
+                                <td><span style="font-weight: 500;">CTG0291</span></td>
+                                <td>T-shirt rainbow...</td>
+                                <td style="color: var(--text-muted);">12/02/2022</td>
+                                <td><span style="font-weight: 700;">$49</span></td>
+                                <td>
+                                    <span class="platform-badge platform-badge-tokopedia">
+                                        <span class="brand-logo-icon" style="width: 18px; height: 18px; font-size: 0.6rem; background: #4caf50; color: white; border: none;">T</span>
+                                        Tokopedia
+                                    </span>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 3: Huzzle black cap Tokopedia -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="table-row-checkbox">
+                                </td>
+                                <td><span style="font-weight: 500;">CTG0291</span></td>
+                                <td>Huzzle black cap</td>
+                                <td style="color: var(--text-muted);">12/02/2022</td>
+                                <td><span style="font-weight: 700;">$109</span></td>
+                                <td>
+                                    <span class="platform-badge platform-badge-tokopedia">
+                                        <span class="brand-logo-icon" style="width: 18px; height: 18px; font-size: 0.6rem; background: #4caf50; color: white; border: none;">T</span>
+                                        Tokopedia
+                                    </span>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 4: Crop top pants Shopee -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="table-row-checkbox">
+                                </td>
+                                <td><span style="font-weight: 500;">CTG0291</span></td>
+                                <td>Crop top pants</td>
+                                <td style="color: var(--text-muted);">12/02/2022</td>
+                                <td><span style="font-weight: 700;">$666</span></td>
+                                <td>
+                                    <span class="platform-badge platform-badge-shopee">
+                                        <span class="brand-logo-icon" style="width: 18px; height: 18px; font-size: 0.6rem; background: #ff5722; color: white; border: none;">S</span>
+                                        Shopee
+                                    </span>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 5: Crop top pants Tiktok -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="table-row-checkbox">
+                                </td>
+                                <td><span style="font-weight: 500;">CTG0291</span></td>
+                                <td>Crop top pants</td>
+                                <td style="color: var(--text-muted);">12/02/2022</td>
+                                <td><span style="font-weight: 700;">$239</span></td>
+                                <td>
+                                    <span class="platform-badge platform-badge-tiktok">
+                                        <span class="brand-logo-icon" style="width: 18px; height: 18px; font-size: 0.6rem; background: black; color: white; border: none;">T</span>
+                                        Tiktok
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ChartJS and Core Logic Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+</body>
+</html>

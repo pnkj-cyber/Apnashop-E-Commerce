@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApNASHOp - My Profile</title>
+    <link rel="stylesheet" href="../css/style.css?v=2.0">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+        }
+
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10b981;
+            animation: pulse 1.8s infinite ease-in-out;
+        }
+        .address-suggestion-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--navy-blue);
+            transition: background 0.2s ease;
+            text-align: left;
+        }
+        .address-suggestion-item:hover {
+            background: #f8fafc;
+        }
+        .address-suggestion-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>
+                    <a href="index.html" class="logo-link">
+                        <span class="apna">ApNA</span>
+                        <span class="shop">sHOp</span>
+                    </a>
+                </h1>
+            </div>
+
+            <div class="nav-datetime-container" id="navLinks">
+                <!-- Date block -->
+                <div class="widget-date-block">
+                    <span class="widget-date-large" id="widgetDate">--/--</span>
+                    <div class="widget-date-stack">
+                        <span class="widget-day" id="widgetDay">---</span>
+                        <span class="widget-month" id="widgetMonth">---</span>
+                    </div>
+                </div>
+                <!-- Center Year divider -->
+                <div class="widget-center-block">
+                    <div class="widget-line"></div>
+                    <span class="widget-year" id="widgetYear">----</span>
+                </div>
+                <!-- Time block -->
+                <div class="widget-time-block">
+                    <span class="widget-time-large" id="widgetTime">--:--</span>
+                    <div class="widget-time-stack">
+                        <span class="widget-ampm" id="widgetAmpm">--</span>
+                        <span class="widget-sec" id="widgetSec">:--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-location-container" id="navLocation" title="Click to refresh location">
+                <i class="fas fa-map-marker-alt location-dot-pulse"></i>
+                <div class="location-stack">
+                    <span class="location-label">Deliver to</span>
+                    <span class="location-value" id="navLocationAddress">Detecting...</span>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search products...">
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="icons">
+                <div class="nav-dropdown-wrapper">
+                    <a href="#" class="login-btn dropdown-toggle">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span id="navAccountText">Login</span>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#" class="dropdown-item" id="dropdownLoginBtn"><i class="fas fa-sign-in-alt"></i> Login
+                            / Register</a>
+                        <a href="profile.html" class="dropdown-item logged-in-only"><i class="fas fa-user-circle"></i>
+                            My Profile</a>
+                        <a href="orders.html" class="dropdown-item logged-in-only"><i class="fas fa-boxes"></i> My
+                            Orders</a>
+                        <a href="#" class="dropdown-item wishlist-link"><i class="fas fa-heart"></i> Wishlist (<span
+                                id="wishlist-count-dropdown">0</span>)</a>
+                        <a href="#" class="dropdown-item logged-in-only" id="dropdownSignOutBtn"><i
+                                class="fas fa-sign-out-alt"></i> Sign Out</a>
+                    </div>
+                </div>
+
+                <a href="#" class="cart-link">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cart-count">0</span>
+                    </div>
+                    <span>Cart</span>
+                </a>
+            </div>
+        </nav>
+
+        <nav class="category-navbar">
+            <ul>
+                <li><a href="products.html?category=Mobiles" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Mobiles"></span>Mobiles</a></li>
+                <li><a href="products.html?category=Laptops" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Laptops"></span>Laptops</a></li>
+                <li><a href="products.html?category=Electronics" class="category-link"><span
+                            class="category-icon-wrapper" data-category="Electronics"></span>Electronics</a></li>
+                <li><a href="products.html?category=Fashion" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Fashion"></span>Fashion</a></li>
+                <li><a href="products.html?category=Footwear" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Footwear"></span>Footwear</a></li>
+                <li><a href="products.html?category=Watches" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Watches"></span>Watches</a></li>
+                <li><a href="products.html?category=Beauty" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Beauty"></span>Beauty</a></li>
+                <li><a href="products.html?category=Bags" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Bags"></span>Bags</a></li>
+                <li><a href="products.html?category=Home%20%26%20Kitchen" class="category-link"><span
+                            class="category-icon-wrapper" data-category="Home & Kitchen"></span>Home & Kitchen</a></li>
+                <li><a href="products.html?category=Furniture" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Furniture"></span>Furniture</a></li>
+                <li><a href="products.html?category=Appliances" class="category-link"><span
+                            class="category-icon-wrapper" data-category="Appliances"></span>Appliances</a></li>
+                <li><a href="products.html?category=Books" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Books"></span>Books</a></li>
+                <li><a href="products.html?category=Gaming" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Gaming"></span>Gaming</a></li>
+                <li><a href="products.html?category=Sports" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Sports"></span>Sports</a></li>
+                <li><a href="products.html?category=Automotive" class="category-link"><span
+                            class="category-icon-wrapper" data-category="Automotive"></span>Automotive</a></li>
+                <li><a href="products.html?category=Baby" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Baby"></span>Baby</a></li>
+                <li><a href="products.html?category=Pets" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Pets"></span>Pets</a></li>
+                <li><a href="products.html?category=Grocery" class="category-link"><span class="category-icon-wrapper"
+                            data-category="Grocery"></span>Grocery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Account Dashboard Layout -->
+    <div class="account-layout">
+        <!-- Sidebar navigation -->
+        <aside class="account-sidebar">
+            <div class="user-profile-widget">
+                <div class="profile-avatar" id="sideUserInitials">U</div>
+                <h4 id="sideUserName">User Profile</h4>
+                <p id="sideUserEmail">user@example.com</p>
+                <p id="sideUserPhone"
+                    style="font-size:12px; color:var(--text-muted); margin-top:5px; font-weight:500; display:flex; align-items:center; justify-content:center; gap:5px;">
+                    <i class="fas fa-phone-alt" style="font-size:10px; color:var(--green-success);"></i> --</p>
+            </div>
+
+            <nav class="account-nav-list">
+                <a href="#" class="account-nav-item active" id="profileTabBtn">
+                    <i class="fas fa-user-circle"></i> Profile Details
+                </a>
+                <a href="#" class="account-nav-item" id="manageProductsTabBtn" style="display: none;">
+                    <i class="fas fa-tasks"></i> Manage Products
+                </a>
+                <a href="#" class="account-nav-item" id="adminPanelTabBtn" style="display: none;">
+                    <i class="fas fa-user-shield"></i> Admin Panel
+                </a>
+                <a href="orders.html" class="account-nav-item">
+                    <i class="fas fa-boxes"></i> Order History
+                </a>
+                <a href="#" class="account-nav-item" id="accountSignOutBtn"
+                    style="color: var(--red-discount); margin-top:20px; border-top:1.5px solid #f1f5f9; border-radius:0; padding-top:15px;">
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="account-content-card">
+            <!-- Section: Profile Details -->
+            <div id="profileDetailsSection">
+                <h2
+                    style="margin-bottom: 25px; color: var(--navy-blue); font-size: 26px; border-bottom: 2.5px solid #f1f5f9; padding-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
+                    <span>Profile Details</span>
+                    <button type="button" id="toggleProfileModeBtn" class="buy-btn"
+                        style="margin:0; padding:6px 14px; font-size:12px; background:var(--navy-accent); display:flex; align-items:center; gap:6px; color:white !important;">
+                        <i class="fas fa-edit"></i> Edit Details
+                    </button>
+                </h2>
+
+                <!-- Minimized/Compact Profile Card View -->
+                <div id="profileCompactCard"
+                    style="background:white; border-radius:15px; padding:25px; border:1px solid #cbd5e1; box-shadow:var(--card-shadow); display:flex; flex-direction:column; gap:20px; transition:var(--transition);">
+                    <div
+                        style="display:flex; align-items:center; gap:20px; border-bottom:1.5px solid #f1f5f9; padding-bottom:20px;">
+                        <div id="compactAvatar"
+                            style="width:60px; height:60px; background:linear-gradient(135deg, var(--navy-blue), var(--navy-light)); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+                            U</div>
+                        <div>
+                            <h3 id="compactName" style="color:var(--navy-blue); font-size:20px; font-weight:800;">John
+                                Doe</h3>
+                            <span id="compactUserType"
+                                style="display:inline-block; margin-top:5px; font-size:11px; font-weight:700; text-transform:uppercase; background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:12px; letter-spacing:0.5px;">Buyer</span>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr; gap:15px;">
+                        <div style="display:flex; align-items:flex-start; gap:12px; width: 100%;">
+                            <div
+                                style="width:30px; height:30px; border-radius:50%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; color:var(--text-muted); flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt" style="color:var(--orange-primary);"></i></div>
+                            <div style="flex:1; min-width: 0;">
+                                <div
+                                    style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:5px; width:100%; margin-bottom: 2px;">
+                                    <span
+                                        style="font-size:11px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Default
+                                        Delivery Address</span>
+                                    <span id="liveLocationBadge"
+                                        style="display:inline-flex; align-items:center; gap:5px; font-size:10px; color:#10b981; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">
+                                        <span class="pulse-dot"></span> Live Tracking
+                                    </span>
+                                </div>
+                                <strong id="compactAddress"
+                                    style="color:var(--navy-blue); font-size:14px; font-weight:600; display:block; line-height:1.4; transition: all 0.5s ease; border-radius: 4px; padding: 2px 0;">Flat,
+                                    Street name, City, Pincode</strong>
+                                <span id="compactCoordinates"
+                                    style="display:block; font-size:10px; color:var(--text-muted); margin-top:4px; font-family: monospace; font-weight:500;"></span>
+                            </div>
+                        </div>
+
+                        <div
+                            style="display:grid; grid-template-columns:1fr 1fr; gap:15px; border-top:1.5px solid #f1f5f9; padding-top:15px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div
+                                    style="width:30px; height:30px; border-radius:50%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; color:var(--text-muted);">
+                                    <i class="fas fa-envelope" style="color:#0284c7;"></i></div>
+                                <div>
+                                    <span
+                                        style="display:block; font-size:10px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Gmail
+                                        / Email</span>
+                                    <span id="compactEmail"
+                                        style="color:var(--navy-blue); font-size:13px; font-weight:600;">yourname@gmail.com</span>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div
+                                    style="width:30px; height:30px; border-radius:50%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; color:var(--text-muted);">
+                                    <i class="fas fa-phone-alt" style="color:#10b981;"></i></div>
+                                <div>
+                                    <span
+                                        style="display:block; font-size:10px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Contact
+                                        Number</span>
+                                    <span id="compactPhone"
+                                        style="color:var(--navy-blue); font-size:13px; font-weight:600;">9876543210</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Form View (Hidden by default, shown in edit mode) -->
+                <form id="editProfileForm"
+                    style="display:none; flex-direction:column; gap:20px; background:white; border-radius:15px; padding:25px; border:1px solid #cbd5e1; box-shadow:var(--card-shadow);">
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required placeholder="John Doe">
+                    </div>
+
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="profileEmail">Email Address</label>
+                        <input type="email" id="profileEmail" required placeholder="yourname@gmail.com">
+                    </div>
+
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="profilePhone">Contact Number</label>
+                        <input type="tel" id="profilePhone" required placeholder="9876543210">
+                    </div>
+
+                    <div class="auth-field-group" style="margin:0; position: relative;">
+                        <label for="profileAddress">Default Delivery Address</label>
+                        <div style="display:flex; gap:10px; width:100%;">
+                            <input type="text" id="profileAddress" placeholder="Flat, Street name, City, Pincode"
+                                style="flex:1;" autocomplete="off">
+                            <button type="button" id="detectLocationBtn" class="buy-btn"
+                                style="margin:0; padding:12px 18px; display:flex; align-items:center; gap:8px; width:fit-content; background:var(--navy-blue);">
+                                <i class="fas fa-map-marker-alt"></i> Detect
+                            </button>
+                        </div>
+                        <div id="addressSuggestions" style="display:none; position:absolute; top:100%; left:0; right:0; background:white; border:1px solid #cbd5e1; border-radius:8px; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); z-index:1000; max-height:200px; overflow-y:auto; margin-top:5px;"></div>
+                    </div>
+
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="profileUserType">Account User Type</label>
+                        <select id="profileUserType"
+                            style="width:100%; padding:12px 16px; border:1.5px solid #cbd5e1; border-radius:10px; font-weight:700; text-transform:uppercase; outline:none; transition:var(--transition); background:white;">
+                            <option value="buyer">Buyer</option>
+                            <option value="supplier">Supplier</option>
+                        </select>
+                    </div>
+
+                    <div style="display:flex; gap:12px; margin-top:5px;">
+                        <button type="submit" class="buy-btn"
+                            style="margin:0; width:fit-content; padding:12px 35px; font-size:14px; font-weight:700;">
+                            Save Profile Changes
+                        </button>
+                        <button type="button" id="cancelEditProfileBtn" class="buy-btn"
+                            style="margin:0; width:fit-content; padding:12px 30px; font-size:14px; font-weight:700; background:var(--text-muted);">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Section: Manage Products (Supplier Only) -->
+            <div id="manageProductsSection" style="display: none;">
+                <div class="manage-products-header">
+                    <h2>Manage Products</h2>
+                    <button class="buy-btn" id="openAddProductModalBtn"
+                        style="margin:0; width:fit-content; padding:10px 20px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px;">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="supplier-products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>SKU</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="supplierProductsTableBody">
+                            <!-- Dynamic items -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="emptySupplierProducts" class="empty-products-state" style="display:none;">
+                    <i class="fas fa-box-open"></i>
+                    <p>You haven't listed any products yet.</p>
+                </div>
+            </div>
+
+            <!-- Section: Admin Panel (Admin Only) -->
+            <div id="adminPanelSection" style="display: none;">
+                <div class="manage-products-header" style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2>Admin User Directory</h2>
+                    <button class="buy-btn" id="adminAddUserBtn"
+                        style="margin:0; width:fit-content; padding:10px 20px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px;">
+                        <i class="fas fa-user-plus"></i> Add New User
+                    </button>
+                </div>
+
+                <!-- Admin Dashboard Stats -->
+                <div class="admin-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 25px; margin-top: 15px;">
+                    <div class="admin-stat-card" style="background: white; border-radius: 12px; padding: 15px 20px; border: 1px solid #cbd5e1; box-shadow: var(--card-shadow); text-align: center; transition: var(--transition);">
+                        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px;">Total Users</div>
+                        <div id="statTotalUsers" style="font-size: 28px; font-weight: 800; color: var(--navy-blue); margin-top: 5px;">0</div>
+                    </div>
+                    <div class="admin-stat-card" style="background: white; border-radius: 12px; padding: 15px 20px; border: 1px solid #cbd5e1; box-shadow: var(--card-shadow); text-align: center; transition: var(--transition);">
+                        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--green-success); letter-spacing: 0.5px;">Buyers</div>
+                        <div id="statTotalBuyers" style="font-size: 28px; font-weight: 800; color: var(--green-success); margin-top: 5px;">0</div>
+                    </div>
+                    <div class="admin-stat-card" style="background: white; border-radius: 12px; padding: 15px 20px; border: 1px solid #cbd5e1; box-shadow: var(--card-shadow); text-align: center; transition: var(--transition);">
+                        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange-primary); letter-spacing: 0.5px;">Suppliers</div>
+                        <div id="statTotalSuppliers" style="font-size: 28px; font-weight: 800; color: var(--orange-primary); margin-top: 5px;">0</div>
+                    </div>
+                    <div class="admin-stat-card" style="background: white; border-radius: 12px; padding: 15px 20px; border: 1px solid #cbd5e1; box-shadow: var(--card-shadow); text-align: center; transition: var(--transition);">
+                        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--navy-accent); letter-spacing: 0.5px;">Admins</div>
+                        <div id="statTotalAdmins" style="font-size: 28px; font-weight: 800; color: var(--navy-accent); margin-top: 5px;">0</div>
+                    </div>
+                </div>
+
+                <!-- User directory search & filter -->
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+                    <div style="flex: 1; min-width: 250px; position: relative;">
+                        <input type="text" id="adminUserSearch" placeholder="Search users by name, email, or phone..." 
+                               style="width: 100%; padding: 10px 15px 10px 40px; border-radius: 8px; border: 1.5px solid #cbd5e1; outline: none; font-size: 14px; transition: var(--transition);">
+                        <i class="fas fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                    </div>
+                    <div>
+                        <select id="adminUserRoleFilter" style="padding: 10px 15px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: white; font-size: 14px; outline: none; font-weight: 600; cursor: pointer;">
+                            <option value="">All Roles</option>
+                            <option value="buyer">Buyer</option>
+                            <option value="supplier">Supplier</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="supplier-products-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                                <th>Address</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUsersTableBody">
+                            <!-- Dynamic user rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="emptyAdminUsers" class="empty-products-state" style="display:none;">
+                    <i class="fas fa-users-slash"></i>
+                    <p>No matching users found.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <h3>ApNAshOp</h3>
+                <p>
+                    Your One-Stop Online Shopping Destination.
+                    Discover amazing deals on electronics,
+                    fashion, home essentials and more.
+                </p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br>
+                <a href="products.html">Shop</a><br>
+                <a href="products.html">Offers</a><br>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-box">
+                <h3>Customer Support</h3>
+                <a href="orders.html">Track Order</a><br>
+                <a href="orders.html">Returns</a><br>
+                <a href="profile.html">Help Center</a><br>
+                <a href="profile.html">FAQs</a>
+            </div>
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Subscribe</h3>
+                <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+                <form class="footer-subscribe-form">
+                    <input type="email" placeholder="Enter your email" required class="subscribe-input">
+                    <button type="submit" class="subscribe-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 ApNAshOp | All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- Side drawers (Included for consistency) -->
+    <div class="drawer-overlay" id="cartDrawerOverlay">
+        <div class="side-drawer" id="cartDrawer">
+            <div class="drawer-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="drawer-close-btn" id="closeCartDrawerBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="drawer-body" id="cartDrawerBody">
+                <!-- Dynamic Cart Items -->
+            </div>
+            <div class="drawer-footer">
+                <div class="drawer-subtotal">
+                    <span>Subtotal:</span>
+                    <span class="drawer-subtotal-val" id="cartSubtotal">₹0</span>
+                </div>
+                <button class="drawer-checkout-btn" id="checkoutBtn">Checkout Now</button>
+                <button class="drawer-clear-btn" id="clearCartBtn">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="wishlistDrawerOverlay">
+        <div class="side-drawer" id="wishlistDrawer">
+            <div class="drawer-header">
+                <h3><i class="fas fa-heart wishlist-title-icon"></i> Your Wishlist</h3>
+                <button class="drawer-close-btn" id="closeWishlistDrawerBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="drawer-body" id="wishlistDrawerBody">
+                <!-- Dynamic Wishlist Items -->
+            </div>
+            <div class="drawer-footer">
+                <button class="drawer-clear-btn" id="closeWishlistFooterBtn">Close Wishlist</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal Overlay -->
+    <div class="auth-modal-overlay" id="authModal">
+        <div class="auth-modal-card" id="authCard">
+            <button class="auth-close-btn" id="closeAuthBtn" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Form: Sign Up (Register) -->
+            <div class="auth-form-container sign-up-container">
+                <form id="signUpForm">
+                    <h2>Create new account</h2>
+
+                    <div class="auth-field-group">
+                        <label for="regName">Name</label>
+                        <input type="text" id="regName" required placeholder="John Doe">
+                    </div>
+
+                    <div class="auth-field-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" required placeholder="yourname@gmail.com">
+                    </div>
+
+                    <div class="auth-field-group">
+                        <label for="regPhone">Contact Number</label>
+                        <input type="tel" id="regPhone" required placeholder="9876543210">
+                    </div>
+
+                    <div class="auth-field-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required placeholder="••••••••">
+                    </div>
+
+                    <div class="auth-field-group">
+                        <label>Signing As</label>
+                        <div class="auth-radio-group">
+                            <label class="auth-radio-label">
+                                <input type="radio" name="regUserType" value="buyer" checked>
+                                <span class="auth-custom-radio"></span>
+                                Buyer
+                            </label>
+                            <label class="auth-radio-label">
+                                <input type="radio" name="regUserType" value="supplier">
+                                <span class="auth-custom-radio"></span>
+                                Supplier
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-btn">SIGN UP</button>
+
+                    <p class="auth-terms">By registering, you agree to the <a href="#">Terms and Conditions</a></p>
+
+                    <p class="auth-switch-text">Already registered? <a href="#" id="toSignInBtn">Login</a></p>
+                </form>
+            </div>
+
+            <!-- Form: Sign In (Login) -->
+            <div class="auth-form-container sign-in-container">
+                <form id="signInForm">
+                    <h2>Sign in to account</h2>
+
+                    <div class="auth-field-group">
+                        <label for="loginUser">Email / Contact Number</label>
+                        <input type="text" id="loginUser" required placeholder="yourname@gmail.com or Phone number">
+                    </div>
+
+                    <div class="auth-field-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+
+                    <button type="submit" class="auth-btn">SIGN IN</button>
+
+                    <p class="auth-switch-text">Don't have an account? <a href="#" id="toSignUpBtn">Sign Up</a></p>
+                </form>
+            </div>
+
+            <!-- Sliding Banner Panel -->
+            <div class="auth-overlay-container">
+                <div class="auth-overlay-sliding">
+                    <!-- Overlay Left -->
+                    <div class="auth-overlay-panel auth-overlay-left">
+                        <div class="auth-ill-container">
+                            <div class="ill-globe">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="ill-cart-wrapper">
+                                <div class="ill-boxes">
+                                    <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                    <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                                </div>
+                                <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                            </div>
+                            <div class="ill-dashed-line"></div>
+                        </div>
+                        <h1>Get all your buying problems solved today</h1>
+                        <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                    </div>
+                    <!-- Overlay Right -->
+                    <div class="auth-overlay-panel auth-overlay-right">
+                        <div class="auth-ill-container">
+                            <div class="ill-globe">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="ill-cart-wrapper">
+                                <div class="ill-boxes">
+                                    <span class="ill-box ill-box-1"><i class="fas fa-box"></i></span>
+                                    <span class="ill-box ill-box-2"><i class="fas fa-gift"></i></span>
+                                </div>
+                                <i class="fas fa-shopping-cart ill-cart-icon"></i>
+                            </div>
+                            <div class="ill-dashed-line"></div>
+                        </div>
+                        <h1>Get all your buying problems solved today</h1>
+                        <p>Join ApNASHOp and get connected to different suppliers across the globe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal-overlay" id="addProductModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeProductModalBtn" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+            </div>
+            <form id="addProductForm" style="display:flex; flex-direction:column; gap:16px;">
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="prodSku">SKU (Unique Identifier)</label>
+                    <input type="text" id="prodSku" required placeholder="e.g. mobiles-16"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="prodName">Product Name</label>
+                    <input type="text" id="prodName" required placeholder="e.g. iPhone 15 Pro Max"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="prodBrand">Brand</label>
+                    <input type="text" id="prodBrand" required placeholder="e.g. Apple"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="prodCategory">Category</label>
+                    <select id="prodCategory" required
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none; background:white;">
+                        <option value="Mobiles">Mobiles</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Footwear">Footwear</option>
+                        <option value="Watches">Watches</option>
+                        <option value="Beauty">Beauty</option>
+                        <option value="Bags">Bags</option>
+                        <option value="Home & Kitchen">Home & Kitchen</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Appliances">Appliances</option>
+                        <option value="Books">Books</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Automotive">Automotive</option>
+                        <option value="Baby">Baby</option>
+                        <option value="Pets">Pets</option>
+                        <option value="Grocery">Grocery</option>
+                    </select>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="prodPrice">Price (₹)</label>
+                        <input type="number" id="prodPrice" required min="0" placeholder="e.g. 139900"
+                            style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                    </div>
+                    <div class="auth-field-group" style="margin:0;">
+                        <label for="prodDiscount">Discount (%)</label>
+                        <input type="number" id="prodDiscount" required min="0" max="100" value="0"
+                            style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                    </div>
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="prodImage">Image URL</label>
+                    <input type="url" id="prodImage" required placeholder="https://example.com/image.jpg"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:5px;">
+                    <input type="checkbox" id="prodInStock" checked style="width:18px; height:18px; cursor:pointer;">
+                    <label for="prodInStock" style="font-weight:600; cursor:pointer;">In Stock</label>
+                </div>
+                <button type="submit" class="buy-btn"
+                    style="margin-top:10px; width:100%; padding:12px; font-size:15px; font-weight:700;">
+                    Add Product
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal-overlay" id="adminAddUserModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeAddUserModalBtn" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3 style="color:var(--navy-blue); font-weight:800; font-size:22px; margin-bottom:15px;">Add New User</h3>
+            </div>
+            <form id="adminAddUserForm" style="display:flex; flex-direction:column; gap:16px;">
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddName">Full Name</label>
+                    <input type="text" id="adminAddName" required placeholder="e.g. John Doe"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddEmail">Email Address</label>
+                    <input type="email" id="adminAddEmail" required placeholder="e.g. john@example.com"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddPhone">Phone Number</label>
+                    <input type="tel" id="adminAddPhone" required placeholder="e.g. 9876543210"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddPassword">Password</label>
+                    <input type="password" id="adminAddPassword" required placeholder="••••••••"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddRole">User Role</label>
+                    <select id="adminAddRole" required
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none; background:white;">
+                        <option value="buyer">Buyer</option>
+                        <option value="supplier">Supplier</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminAddAddress">Address</label>
+                    <textarea id="adminAddAddress" placeholder="Enter user address details..." rows="3"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none; resize:none; font-family:inherit;"></textarea>
+                </div>
+                <button type="submit" class="buy-btn"
+                    style="margin-top:10px; width:100%; padding:12px; font-size:15px; font-weight:700;">
+                    Create User
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal-overlay" id="adminEditUserModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeEditUserModalBtn" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3 style="color:var(--navy-blue); font-weight:800; font-size:22px; margin-bottom:15px;">Edit User Details</h3>
+            </div>
+            <form id="adminEditUserForm" style="display:flex; flex-direction:column; gap:16px;">
+                <input type="hidden" id="adminEditUserId">
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditName">Full Name</label>
+                    <input type="text" id="adminEditName" required placeholder="e.g. John Doe"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditEmail">Email Address</label>
+                    <input type="email" id="adminEditEmail" required placeholder="e.g. john@example.com"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditPhone">Phone Number</label>
+                    <input type="tel" id="adminEditPhone" required placeholder="e.g. 9876543210"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditPassword">Password (leave blank to keep current)</label>
+                    <input type="password" id="adminEditPassword" placeholder="••••••••"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none;">
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditRole">User Role</label>
+                    <select id="adminEditRole" required
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none; background:white;">
+                        <option value="buyer">Buyer</option>
+                        <option value="supplier">Supplier</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="auth-field-group" style="margin:0;">
+                    <label for="adminEditAddress">Address</label>
+                    <textarea id="adminEditAddress" placeholder="Enter user address details..." rows="3"
+                        style="width:100%; padding:10px 14px; border:1.5px solid #cbd5e1; border-radius:8px; outline:none; resize:none; font-family:inherit;"></textarea>
+                </div>
+                <button type="submit" class="buy-btn"
+                    style="margin-top:10px; width:100%; padding:12px; font-size:15px; font-weight:700;">
+                    Save Changes
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/products.js" defer></script>
+    <script src="../js/cart.js?v=2.0" defer></script>
+    <script src="../js/script.js?v=2.0" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let token = localStorage.getItem("token");
+            if (!token) {
+                alert("Please login to view your profile details.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            };
+
+            // Load Profile Details from Backend API
+            fetch('http://localhost:8000/api/auth/profile/', {
+                method: 'GET',
+                headers: headers
+            })
+                .then(res => {
+                    if (res.status === 401) {
+                        localStorage.removeItem("token");
+                        localStorage.removeItem("loggedInUser");
+                        alert("Session expired. Please login again.");
+                        window.location.href = "index.html";
+                        throw new Error("Unauthorized");
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.success && data.user) {
+                        const user = data.user;
+                        localStorage.setItem("loggedInUser", JSON.stringify(user));
+                        populateProfileUI(user);
+                        startRealTimeLocationTracking();
+                    } else {
+                        alert(data.error || "Failed to load profile details.");
+                    }
+                })
+                .catch(err => {
+                    console.error("Profile load error:", err);
+                    // Fallback to local storage if API is down
+                    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+                    if (user) {
+                        populateProfileUI(user);
+                        startRealTimeLocationTracking();
+                    }
+                });
+
+            function populateProfileUI(user) {
+                // Populate Sidebar UI
+                const sideInitials = document.getElementById("sideUserInitials");
+                if (sideInitials && user.name) {
+                    const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                    sideInitials.innerText = initials;
+                }
+                document.getElementById("sideUserName").innerText = user.name || "User";
+                document.getElementById("sideUserEmail").innerText = user.email || "";
+                const sideUserPhone = document.getElementById("sideUserPhone");
+                if (sideUserPhone) {
+                    sideUserPhone.innerHTML = `<i class="fas fa-phone-alt" style="font-size:10px; color:var(--green-success);"></i> ${user.phone || "--"}`;
+                }
+
+                // Populate Compact Card UI
+                const compactName = document.getElementById("compactName");
+                const compactUserType = document.getElementById("compactUserType");
+                const compactAddress = document.getElementById("compactAddress");
+                const compactEmail = document.getElementById("compactEmail");
+                const compactPhone = document.getElementById("compactPhone");
+                const compactAvatar = document.getElementById("compactAvatar");
+
+                if (compactName) compactName.innerText = user.name || "User";
+                if (compactUserType) compactUserType.innerText = user.userType || "buyer";
+                if (compactAddress) compactAddress.innerText = user.address || "No address added yet";
+                if (compactEmail) compactEmail.innerText = user.email || "";
+                if (compactPhone) compactPhone.innerText = user.phone || "";
+                if (compactAvatar && user.name) {
+                    const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                    compactAvatar.innerText = initials || "U";
+                }
+
+                // Pre-populate Form Fields
+                document.getElementById("profileName").value = user.name || "";
+                document.getElementById("profileEmail").value = user.email || "";
+                document.getElementById("profilePhone").value = user.phone || "";
+                document.getElementById("profileAddress").value = user.address || "";
+                const profileUserTypeSelect = document.getElementById("profileUserType");
+                if (profileUserTypeSelect) {
+                    let adminOption = profileUserTypeSelect.querySelector('option[value="admin"]');
+                    if (user.userType === "admin" && !adminOption) {
+                        adminOption = document.createElement("option");
+                        adminOption.value = "admin";
+                        adminOption.textContent = "Admin";
+                        profileUserTypeSelect.appendChild(adminOption);
+                    } else if (user.userType !== "admin" && adminOption) {
+                        adminOption.remove();
+                    }
+                    profileUserTypeSelect.value = user.userType || "buyer";
+                }
+
+                // Handle visibility of Supplier Tab
+                const manageProductsTabBtn = document.getElementById("manageProductsTabBtn");
+                if (manageProductsTabBtn) {
+                    if (user.userType === 'supplier') {
+                        manageProductsTabBtn.style.display = "flex";
+                    } else {
+                        manageProductsTabBtn.style.display = "none";
+                        // If active tab was products, switch back to profile
+                        if (manageProductsTabBtn.classList.contains("active")) {
+                            toggleTab("profile");
+                        }
+                    }
+                }
+
+                // Handle visibility of Admin Tab
+                const adminPanelTabBtn = document.getElementById("adminPanelTabBtn");
+                if (adminPanelTabBtn) {
+                    if (user.userType === 'admin') {
+                        adminPanelTabBtn.style.display = "flex";
+                    } else {
+                        adminPanelTabBtn.style.display = "none";
+                        // If active tab was admin, switch back to profile
+                        if (adminPanelTabBtn.classList.contains("active")) {
+                            toggleTab("profile");
+                        }
+                    }
+                }
+            }
+
+            // Tab Switching Logic
+            const profileTabBtn = document.getElementById("profileTabBtn");
+            const manageProductsTabBtn = document.getElementById("manageProductsTabBtn");
+            const adminPanelTabBtn = document.getElementById("adminPanelTabBtn");
+            const profileSection = document.getElementById("profileDetailsSection");
+            const manageProductsSection = document.getElementById("manageProductsSection");
+            const adminPanelSection = document.getElementById("adminPanelSection");
+
+            function toggleTab(tabName) {
+                if (tabName === "profile") {
+                    profileTabBtn.classList.add("active");
+                    if (manageProductsTabBtn) manageProductsTabBtn.classList.remove("active");
+                    if (adminPanelTabBtn) adminPanelTabBtn.classList.remove("active");
+                    profileSection.style.display = "block";
+                    if (manageProductsSection) manageProductsSection.style.display = "none";
+                    if (adminPanelSection) adminPanelSection.style.display = "none";
+                } else if (tabName === "products") {
+                    if (manageProductsTabBtn) manageProductsTabBtn.classList.add("active");
+                    profileTabBtn.classList.remove("active");
+                    if (adminPanelTabBtn) adminPanelTabBtn.classList.remove("active");
+                    profileSection.style.display = "none";
+                    if (manageProductsSection) manageProductsSection.style.display = "block";
+                    if (adminPanelSection) adminPanelSection.style.display = "none";
+                    loadSupplierProducts();
+                } else if (tabName === "admin") {
+                    if (adminPanelTabBtn) adminPanelTabBtn.classList.add("active");
+                    profileTabBtn.classList.remove("active");
+                    if (manageProductsTabBtn) manageProductsTabBtn.classList.remove("active");
+                    profileSection.style.display = "none";
+                    if (manageProductsSection) manageProductsSection.style.display = "none";
+                    if (adminPanelSection) adminPanelSection.style.display = "block";
+                    loadAdminUsers();
+                }
+            }
+
+            if (profileTabBtn) {
+                profileTabBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    toggleTab("profile");
+                });
+            }
+
+            if (manageProductsTabBtn) {
+                manageProductsTabBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    toggleTab("products");
+                });
+            }
+
+            if (adminPanelTabBtn) {
+                adminPanelTabBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    toggleTab("admin");
+                });
+            }
+
+            // Load Supplier Products
+            function loadSupplierProducts() {
+                fetch('http://localhost:8000/api/products/?supplierOnly=true', {
+                    method: 'GET',
+                    headers: headers
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            renderSupplierProducts(data.products);
+                        } else {
+                            alert(data.error || "Failed to load supplier products.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Error loading products:", err);
+                    });
+            }
+
+            function renderSupplierProducts(products) {
+                const tableBody = document.getElementById("supplierProductsTableBody");
+                const emptyState = document.getElementById("emptySupplierProducts");
+
+                tableBody.innerHTML = "";
+                if (!products || products.length === 0) {
+                    emptyState.style.display = "block";
+                    tableBody.parentElement.style.display = "none";
+                    return;
+                }
+
+                emptyState.style.display = "none";
+                tableBody.parentElement.style.display = "table";
+
+                products.forEach(p => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                <td><img src="${p.image}" class="product-thumb-small" alt="${p.name}"></td>
+                <td style="font-weight:700; color:var(--navy-blue);">${p.id}</td>
+                <td style="font-weight:600;">${p.name}</td>
+                <td>${p.category}</td>
+                <td style="font-weight:700; color:var(--orange-primary);">₹${p.price}</td>
+                <td>
+                    <span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight:700; background: ${p.inStock ? '#d1fae5; color: #10b981;' : '#fee2e2; color: #ef4444;'}">
+                        ${p.inStock ? 'In Stock' : 'Out of Stock'}
+                    </span>
+                </td>
+                <td>
+                    <button class="btn-delete-product" data-sku="${p.id}" title="Delete Product">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            `;
+
+                    // Delete handler
+                    const deleteBtn = tr.querySelector(".btn-delete-product");
+                    deleteBtn.addEventListener("click", () => {
+                        if (confirm(`Are you sure you want to delete product "${p.name}"?`)) {
+                            deleteProduct(p.id);
+                        }
+                    });
+
+                    tableBody.appendChild(tr);
+                });
+            }
+
+            function deleteProduct(sku) {
+                fetch(`http://localhost:8000/api/products/${sku}/delete/`, {
+                    method: 'POST',
+                    headers: headers
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Product deleted successfully!");
+                            loadSupplierProducts();
+                        } else {
+                            alert(data.error || "Failed to delete product.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Delete product error:", err);
+                        alert("Failed to delete product. Please try again.");
+                    });
+            }
+
+            // Admin Panel Functions
+            let allUsers = [];
+
+            function loadAdminUsers() {
+                fetch('http://localhost:8000/api/admin/users/', {
+                    method: 'GET',
+                    headers: headers
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            allUsers = data.users || [];
+                            updateAdminStats(allUsers);
+                            filterAndRenderUsers();
+                        } else {
+                            alert(data.error || "Failed to load users directory.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Error loading users:", err);
+                        alert("Could not connect to the backend server. Make sure it is running.");
+                    });
+            }
+
+            function updateAdminStats(users) {
+                const total = users.length;
+                const buyers = users.filter(u => u.userType === 'buyer').length;
+                const suppliers = users.filter(u => u.userType === 'supplier').length;
+                const admins = users.filter(u => u.userType === 'admin').length;
+
+                document.getElementById("statTotalUsers").innerText = total;
+                document.getElementById("statTotalBuyers").innerText = buyers;
+                document.getElementById("statTotalSuppliers").innerText = suppliers;
+                document.getElementById("statTotalAdmins").innerText = admins;
+            }
+
+            function filterAndRenderUsers() {
+                const searchQuery = document.getElementById("adminUserSearch").value.trim().toLowerCase();
+                const roleFilter = document.getElementById("adminUserRoleFilter").value;
+
+                let filtered = allUsers;
+
+                if (roleFilter) {
+                    filtered = filtered.filter(u => u.userType === roleFilter);
+                }
+
+                if (searchQuery) {
+                    filtered = filtered.filter(u => 
+                        (u.name && u.name.toLowerCase().includes(searchQuery)) ||
+                        (u.email && u.email.toLowerCase().includes(searchQuery)) ||
+                        (u.phone && u.phone.includes(searchQuery)) ||
+                        (u.username && u.username.toLowerCase().includes(searchQuery))
+                    );
+                }
+
+                renderAdminUsers(filtered);
+            }
+
+            function renderAdminUsers(users) {
+                const tableBody = document.getElementById("adminUsersTableBody");
+                const emptyState = document.getElementById("emptyAdminUsers");
+
+                tableBody.innerHTML = "";
+                if (!users || users.length === 0) {
+                    emptyState.style.display = "block";
+                    tableBody.parentElement.style.display = "none";
+                    return;
+                }
+
+                emptyState.style.display = "none";
+                tableBody.parentElement.style.display = "table";
+
+                users.forEach(u => {
+                    const tr = document.createElement("tr");
+                    
+                    // Create beautiful role badge
+                    let badgeBg = '#e0f2fe; color: #0369a1;'; // Buyer (Blue)
+                    if (u.userType === 'supplier') {
+                        badgeBg = '#fef3c7; color: #d97706;'; // Supplier (Amber)
+                    } else if (u.userType === 'admin') {
+                        badgeBg = '#fee2e2; color: #dc2626;'; // Admin (Red)
+                    }
+                    
+                    const initials = u.name ? u.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : "U";
+
+                    tr.innerHTML = `
+                        <td>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, var(--navy-blue), var(--navy-light)); color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;">
+                                    ${initials}
+                                </div>
+                                <div>
+                                    <div style="font-weight:700; color:var(--navy-blue);">${u.name}</div>
+                                    <div style="font-size:11px; color:var(--text-muted);">@${u.username}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="font-weight:500;">${u.email}</td>
+                        <td>${u.phone || "--"}</td>
+                        <td>
+                            <span style="padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight:700; text-transform:uppercase; background: ${badgeBg}">
+                                ${u.userType}
+                            </span>
+                        </td>
+                        <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${u.address || ''}">
+                            ${u.address || "--"}
+                        </td>
+                        <td style="font-size:12px; color:var(--text-muted);">${u.dateJoined || "--"}</td>
+                        <td>
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn-edit-user" data-id="${u.id}" style="background:var(--navy-accent); color:white; border:none; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:12px; transition:var(--transition);" title="Edit User">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-delete-user" data-id="${u.id}" style="background:var(--red-discount); color:white; border:none; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:12px; transition:var(--transition);" title="Delete User">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+
+                    // Wire up buttons
+                    tr.querySelector(".btn-edit-user").addEventListener("click", () => openEditUserModal(u));
+                    tr.querySelector(".btn-delete-user").addEventListener("click", () => {
+                        if (confirm(`Are you sure you want to delete user "${u.name}" (@${u.username})?`)) {
+                            deleteUser(u.id);
+                        }
+                    });
+
+                    tableBody.appendChild(tr);
+                });
+            }
+
+            function deleteUser(userId) {
+                fetch(`http://localhost:8000/api/admin/users/${userId}/delete/`, {
+                    method: 'POST',
+                    headers: headers
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("User deleted successfully!");
+                            loadAdminUsers();
+                        } else {
+                            alert(data.error || "Failed to delete user.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Delete user error:", err);
+                        alert("An error occurred. Please try again.");
+                    });
+            }
+
+            // Modal Event Listeners & Forms for Admin
+            const adminAddUserModal = document.getElementById("adminAddUserModal");
+            const adminEditUserModal = document.getElementById("adminEditUserModal");
+            const adminAddUserForm = document.getElementById("adminAddUserForm");
+            const adminEditUserForm = document.getElementById("adminEditUserForm");
+
+            // Open Add Modal
+            document.getElementById("adminAddUserBtn").addEventListener("click", () => {
+                adminAddUserForm.reset();
+                adminAddUserModal.classList.add("active");
+            });
+
+            // Close Modals
+            document.getElementById("closeAddUserModalBtn").addEventListener("click", () => {
+                adminAddUserModal.classList.remove("active");
+            });
+            document.getElementById("closeEditUserModalBtn").addEventListener("click", () => {
+                adminEditUserModal.classList.remove("active");
+            });
+
+            adminAddUserModal.addEventListener("click", (e) => {
+                if (e.target === adminAddUserModal) adminAddUserModal.classList.remove("active");
+            });
+            adminEditUserModal.addEventListener("click", (e) => {
+                if (e.target === adminEditUserModal) adminEditUserModal.classList.remove("active");
+            });
+
+            // Open Edit Modal
+            function openEditUserModal(user) {
+                document.getElementById("adminEditUserId").value = user.id;
+                document.getElementById("adminEditName").value = user.name || "";
+                document.getElementById("adminEditEmail").value = user.email || "";
+                document.getElementById("adminEditPhone").value = user.phone || "";
+                document.getElementById("adminEditRole").value = user.userType || "buyer";
+                document.getElementById("adminEditAddress").value = user.address || "";
+                document.getElementById("adminEditPassword").value = ""; // clear password
+                adminEditUserModal.classList.add("active");
+            }
+
+            // Search and filter event listeners
+            document.getElementById("adminUserSearch").addEventListener("input", filterAndRenderUsers);
+            document.getElementById("adminUserRoleFilter").addEventListener("change", filterAndRenderUsers);
+
+            // Add user form submit
+            adminAddUserForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("adminAddName").value;
+                const email = document.getElementById("adminAddEmail").value;
+                const phone = document.getElementById("adminAddPhone").value;
+                const password = document.getElementById("adminAddPassword").value;
+                const userType = document.getElementById("adminAddRole").value;
+                const address = document.getElementById("adminAddAddress").value;
+
+                fetch('http://localhost:8000/api/admin/users/create/', {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({ name, email, phone, password, userType, address })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("User created successfully!");
+                            adminAddUserModal.classList.remove("active");
+                            loadAdminUsers();
+                        } else {
+                            alert(data.error || "Failed to create user.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Create user error:", err);
+                        alert("Connection failed. Please try again.");
+                    });
+            });
+
+            // Edit user form submit
+            adminEditUserForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const userId = document.getElementById("adminEditUserId").value;
+                const name = document.getElementById("adminEditName").value;
+                const email = document.getElementById("adminEditEmail").value;
+                const phone = document.getElementById("adminEditPhone").value;
+                const password = document.getElementById("adminEditPassword").value;
+                const userType = document.getElementById("adminEditRole").value;
+                const address = document.getElementById("adminEditAddress").value;
+
+                const payload = { name, email, phone, userType, address };
+                if (password) payload.password = password;
+
+                fetch(`http://localhost:8000/api/admin/users/${userId}/update/`, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify(payload)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("User updated successfully!");
+                            adminEditUserModal.classList.remove("active");
+                            loadAdminUsers();
+                        } else {
+                            alert(data.error || "Failed to update user.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Update user error:", err);
+                        alert("Connection failed. Please try again.");
+                    });
+            });
+
+            // Modal Control Logic
+            const addProductModal = document.getElementById("addProductModal");
+            const openAddProductModalBtn = document.getElementById("openAddProductModalBtn");
+            const closeProductModalBtn = document.getElementById("closeProductModalBtn");
+            const addProductForm = document.getElementById("addProductForm");
+
+            if (openAddProductModalBtn) {
+                openAddProductModalBtn.addEventListener("click", () => {
+                    addProductForm.reset();
+                    addProductModal.classList.add("active");
+                });
+            }
+
+            if (closeProductModalBtn) {
+                closeProductModalBtn.addEventListener("click", () => {
+                    addProductModal.classList.remove("active");
+                });
+            }
+
+            if (addProductModal) {
+                addProductModal.addEventListener("click", (e) => {
+                    if (e.target === addProductModal) {
+                        addProductModal.classList.remove("active");
+                    }
+                });
+            }
+
+            if (addProductForm) {
+                addProductForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    const sku = document.getElementById("prodSku").value;
+                    const name = document.getElementById("prodName").value;
+                    const brand = document.getElementById("prodBrand").value;
+                    const category = document.getElementById("prodCategory").value;
+                    const price = parseInt(document.getElementById("prodPrice").value);
+                    const discount = parseInt(document.getElementById("prodDiscount").value);
+                    const image = document.getElementById("prodImage").value;
+                    const in_stock = document.getElementById("prodInStock").checked;
+
+                    fetch('http://localhost:8000/api/products/create/', {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify({
+                            sku, name, brand, category, price, discount, image, in_stock
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert("Product added successfully!");
+                                addProductModal.classList.remove("active");
+                                loadSupplierProducts();
+                            } else {
+                                if (data.errors) {
+                                    const errMsgs = Object.entries(data.errors).map(([k, v]) => `${k}: ${v}`).join('\n');
+                                    alert("Failed to add product:\n" + errMsgs);
+                                } else {
+                                    alert(data.error || "Failed to add product.");
+                                }
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Add product error:", err);
+                            alert("Failed to add product. Please try again.");
+                        });
+                });
+            }
+
+            // Mode toggles
+            const profileCompactCard = document.getElementById("profileCompactCard");
+            const toggleProfileModeBtn = document.getElementById("toggleProfileModeBtn");
+            const cancelEditProfileBtn = document.getElementById("cancelEditProfileBtn");
+
+            if (toggleProfileModeBtn && profileCompactCard && profileForm) {
+                toggleProfileModeBtn.addEventListener("click", () => {
+                    const isEditing = profileForm.style.display === "flex";
+                    if (isEditing) {
+                        profileForm.style.display = "none";
+                        profileCompactCard.style.display = "flex";
+                        toggleProfileModeBtn.innerHTML = `<i class="fas fa-edit"></i> Edit Details`;
+                        toggleProfileModeBtn.style.background = "var(--navy-accent)";
+                        toggleProfileModeBtn.style.color = "white";
+                    } else {
+                        profileForm.style.display = "flex";
+                        profileCompactCard.style.display = "none";
+                        toggleProfileModeBtn.innerHTML = `<i class="fas fa-eye"></i> View Card`;
+                        toggleProfileModeBtn.style.background = "var(--navy-blue)";
+                        toggleProfileModeBtn.style.color = "white";
+                    }
+                });
+            }
+
+            if (cancelEditProfileBtn && profileCompactCard && profileForm && toggleProfileModeBtn) {
+                cancelEditProfileBtn.addEventListener("click", () => {
+                    profileForm.style.display = "none";
+                    profileCompactCard.style.display = "flex";
+                    toggleProfileModeBtn.innerHTML = `<i class="fas fa-edit"></i> Edit Details`;
+                    toggleProfileModeBtn.style.background = "var(--navy-accent)";
+                    toggleProfileModeBtn.style.color = "white";
+                });
+            }
+
+            // Geolocation API helper function
+            const detectLocationBtn = document.getElementById("detectLocationBtn");
+            const profileAddressInput = document.getElementById("profileAddress");
+
+            let lastLat = null;
+            let lastLon = null;
+
+            function startRealTimeLocationTracking() {
+                if (window.startGlobalLocationTracking) {
+                    window.startGlobalLocationTracking();
+                }
+            }
+
+            if (detectLocationBtn && profileAddressInput) {
+                detectLocationBtn.addEventListener("click", () => {
+                    if (!navigator.geolocation) {
+                        alert("Geolocation is not supported by your browser.");
+                        return;
+                    }
+
+                    detectLocationBtn.disabled = true;
+                    const originalHtml = detectLocationBtn.innerHTML;
+                    detectLocationBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Detecting...`;
+
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            detectLocationBtn.disabled = false;
+                            detectLocationBtn.innerHTML = originalHtml;
+                            const lat = position.coords.latitude;
+                            const lon = position.coords.longitude;
+
+                            if (window.reverseGeocodeGlobal) {
+                                window.reverseGeocodeGlobal(lat, lon, true);
+                            }
+                        },
+                        (err) => {
+                            console.error("Geolocation error:", err);
+                            detectLocationBtn.disabled = false;
+                            detectLocationBtn.innerHTML = originalHtml;
+                            alert("Location detection failed. Please check location permissions.");
+                        },
+                        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+                    );
+                });
+            }
+
+            // Real-time Search Autocomplete for Address Text Typing (Writing)
+            let debounceTimer = null;
+            const addressSuggestions = document.getElementById("addressSuggestions");
+
+            if (profileAddressInput && addressSuggestions) {
+                profileAddressInput.addEventListener("input", () => {
+                    clearTimeout(debounceTimer);
+                    const query = profileAddressInput.value.trim();
+
+                    if (query.length < 3) {
+                        addressSuggestions.style.display = "none";
+                        addressSuggestions.innerHTML = "";
+                        return;
+                    }
+
+                    debounceTimer = setTimeout(() => {
+                        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`)
+                            .then(res => res.json())
+                            .then(data => {
+                                addressSuggestions.innerHTML = "";
+                                if (data && data.length > 0) {
+                                    addressSuggestions.style.display = "block";
+                                    data.forEach(item => {
+                                        const div = document.createElement("div");
+                                        div.className = "address-suggestion-item";
+                                        div.innerText = item.display_name;
+                                        div.addEventListener("click", () => {
+                                            // Autofill input
+                                            profileAddressInput.value = item.display_name;
+                                            addressSuggestions.style.display = "none";
+                                            addressSuggestions.innerHTML = "";
+
+                                            // Update coordinates in UI
+                                            const lat = parseFloat(item.lat);
+                                            const lon = parseFloat(item.lon);
+                                            lastLat = lat;
+                                            lastLon = lon;
+
+                                            const coordSpan = document.getElementById("compactCoordinates");
+                                            if (coordSpan) {
+                                                coordSpan.innerText = `Lat: ${lat.toFixed(5)}, Lon: ${lon.toFixed(5)}`;
+                                            }
+
+                                            // Update compact card display
+                                            const compactAddress = document.getElementById("compactAddress");
+                                            if (compactAddress) {
+                                                compactAddress.innerText = item.display_name;
+
+                                                // Flash effect
+                                                compactAddress.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
+                                                compactAddress.style.color = "#10b981";
+                                                setTimeout(() => {
+                                                    compactAddress.style.backgroundColor = "transparent";
+                                                    compactAddress.style.color = "var(--navy-blue)";
+                                                }, 1500);
+                                            }
+
+                                            // Update status badge to Custom Pin
+                                            updateLiveBadgeStatus("Custom Pin", "var(--navy-accent)", true);
+
+                                            // Save to backend/localStorage
+                                            saveRealTimeLocationToBackend(item.display_name);
+                                        });
+                                        addressSuggestions.appendChild(div);
+                                    });
+                                } else {
+                                    addressSuggestions.style.display = "none";
+                                }
+                            })
+                            .catch(err => {
+                                console.error("Search suggestion error:", err);
+                            });
+                    }, 500);
+                });
+
+                // Close suggestions dropdown when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (e.target !== profileAddressInput && e.target !== addressSuggestions) {
+                        addressSuggestions.style.display = "none";
+                    }
+                });
+            }
+
+            // Handle profile update form submission
+            if (profileForm) {
+                profileForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById("profileName").value;
+                    const email = document.getElementById("profileEmail").value;
+                    const phone = document.getElementById("profilePhone").value;
+                    const address = document.getElementById("profileAddress").value;
+                    const user_type = document.getElementById("profileUserType").value;
+
+                    fetch('http://localhost:8000/api/auth/profile/', {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify({ name, email, phone, address, user_type })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success && data.user) {
+                                if (data.token) {
+                                    localStorage.setItem("token", data.token);
+                                    headers['Authorization'] = `Bearer ${data.token}`;
+                                }
+                                localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+
+                                // Sync sidebar and navbar UI
+                                populateProfileUI(data.user);
+                                if (window.syncLoginState) {
+                                    window.syncLoginState();
+                                }
+
+                                // Trigger navbar update event
+                                window.dispatchEvent(new Event("storage"));
+
+                                // Switch back to compact card view
+                                if (profileForm && profileCompactCard && toggleProfileModeBtn) {
+                                    profileForm.style.display = "none";
+                                    profileCompactCard.style.display = "flex";
+                                    toggleProfileModeBtn.innerHTML = `<i class="fas fa-edit"></i> Edit Details`;
+                                    toggleProfileModeBtn.style.background = "var(--navy-accent)";
+                                    toggleProfileModeBtn.style.color = "white";
+                                }
+
+                                alert("Profile details updated successfully!");
+                            } else {
+                                alert(data.error || "Failed to update profile.");
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Profile update error:", err);
+                            alert("Failed to save profile changes. Please try again.");
+                        });
+                });
+            }
+
+            // Sign Out Button Action
+            const signOutBtn = document.getElementById("accountSignOutBtn");
+            if (signOutBtn) {
+                signOutBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (confirm("Are you sure you want to sign out?")) {
+                        localStorage.removeItem("loggedInUser");
+                        localStorage.removeItem("token");
+                        alert("Signed out successfully.");
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

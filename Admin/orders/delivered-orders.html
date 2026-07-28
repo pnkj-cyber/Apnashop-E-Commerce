@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivered Orders - ApnaShop Admin</title>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tables.css">
+    <link rel="stylesheet" href="../assets/css/forms.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+</head>
+<body>
+    <div id="app-container" class="dashboard-shell-layout">
+        <!-- Sidebar and Header injected dynamically by main.js -->
+        <main class="content-wrapper" id="content-container">
+            <div class="page-header-section animate-fade-in">
+                <div class="header-title-area">
+                    <span class="breadcrumbs-label">Order Management / Delivered Orders</span>
+                    <h1 class="page-title-text">Delivered Orders</h1>
+                </div>
+                <div class="header-actions-area">
+                    <button class="btn btn-primary" id="add-btn-action"><i class="ri-add-line"></i> Add New</button>
+                </div>
+            </div>
+            
+            <div class="page-content-area animate-fade-in">
+                
+        <div class="card overflow-hidden">
+            <div class="card-header-table-controls">
+                <div class="search-box-container">
+                    <i class="ri-search-line search-box-icon"></i>
+                    <input type="text" class="table-search-input" placeholder="Search Delivered Orders..." id="table-search">
+                </div>
+                <div class="table-actions-buttons">
+                    <button class="btn btn-secondary-outline"><i class="ri-filter-3-line"></i> Filter</button>
+                    <button class="btn btn-secondary-outline"><i class="ri-download-2-line"></i> Export</button>
+                </div>
+            </div>
+            <div class="table-responsive-container">
+                <table class="data-table-element">
+                    <thead>
+                        <tr id="table-header-row">
+                            <th style="width: 40px"><input type="checkbox" class="table-row-select-all" id="select-all-rows"></th>
+                            <th>ID</th>
+                            <th>Name / Description</th>
+                            <th>Date Created</th>
+                            <th>Status</th>
+                            <th class="text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body-rows">
+                        <!-- Filled by page specific script or template -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-pagination-controls">
+                <span class="pagination-count-label">Showing 1-5 of 24 entries</span>
+                <div class="pagination-buttons-group">
+                    <button class="btn btn-icon-only disabled"><i class="ri-arrow-left-s-line"></i></button>
+                    <button class="btn btn-icon-only active">1</button>
+                    <button class="btn btn-icon-only">2</button>
+                    <button class="btn btn-icon-only">3</button>
+                    <button class="btn btn-icon-only"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </main>
+    </div>
+    
+    <!-- Core JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,354 @@
+/* Dashboard Specific Components */
+
+/* Overview Metrics Grid */
+.overview-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.metric-stat-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-smooth);
+}
+
+.metric-stat-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.metric-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: var(--transition-smooth);
+}
+
+.metric-stat-card:hover .metric-icon-box {
+    background-color: var(--primary);
+    color: var(--text-white);
+    border-color: var(--primary);
+}
+
+.metric-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.metric-title-muted {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.metric-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.metric-big-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+}
+
+.trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+}
+
+.trend-badge.positive {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+.trend-badge.negative {
+    background-color: var(--danger-light);
+    color: var(--danger);
+}
+
+/* Sales Report Layout */
+.sales-report-layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+    .sales-report-layout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.report-header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.report-title-label h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.report-title-label p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.sales-report-dropdown {
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.sales-report-dropdown:hover {
+    border-color: var(--border-color-hover);
+    background-color: var(--primary-light);
+}
+
+.sales-metrics-headline {
+    margin-bottom: 24px;
+}
+
+.sales-headline-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+}
+
+.sales-headline-trend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 0.85rem;
+}
+
+.sales-headline-muted-subtext {
+    color: var(--text-muted);
+}
+
+/* Graph timeframe selector pills */
+.timeframe-selector-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.timeframe-pill-btn {
+    border: none;
+    background: transparent;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-spring);
+}
+
+.timeframe-pill-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--primary-light);
+}
+
+.timeframe-pill-btn.active {
+    background-color: var(--primary);
+    color: var(--text-white);
+}
+
+/* Custom tooltip popover */
+.custom-chart-tooltip-bubble {
+    background-color: #0f172a;
+    color: var(--text-white);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    font-size: 0.75rem;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.15s ease;
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(-10px);
+}
+
+.custom-chart-tooltip-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #0f172a transparent transparent;
+}
+
+.tooltip-date {
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 2px;
+}
+
+.tooltip-row-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tooltip-bullet-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.tooltip-value-bold {
+    font-weight: 700;
+}
+
+/* Congratulations Card */
+.promo-congrats-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.congrats-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.congrats-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Congratulations Carousel */
+.promo-carousel-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(59, 130, 246, 0.08);
+    padding: 16px;
+    margin-top: 16px;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.carousel-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.carousel-product-img-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+}
+
+.carousel-product-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.carousel-sold-metrics {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Carousel Buttons */
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-spring);
+    z-index: 5;
+}
+
+.carousel-nav-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn.prev-btn { left: -14px; }
+.carousel-nav-btn.next-btn { right: -14px; }

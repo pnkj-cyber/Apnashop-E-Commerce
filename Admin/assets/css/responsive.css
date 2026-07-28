@@ -1,0 +1,119 @@
+/* Responsive Layout Adaptations */
+
+@media (max-width: 1200px) {
+    .grid-4-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+    
+    .content-wrapper {
+        padding: 24px 30px;
+    }
+    
+    .top-header {
+        padding: 0 30px;
+    }
+    
+    .grid-2-columns {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0px; /* Hide sidebar by default on mobile */
+    }
+    
+    /* Toggle Mobile Navigation Drawer */
+    .sidebar {
+        left: -260px;
+        width: 260px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    
+    .content-wrapper {
+        margin-left: 0 !important;
+        padding: 20px;
+    }
+    
+    .top-header {
+        left: 0 !important;
+        padding: 0 20px;
+    }
+    
+    .sidebar.collapsed ~ .content-wrapper,
+    .sidebar.collapsed ~ .top-header {
+        margin-left: 0;
+        left: 0;
+    }
+    
+    /* Sidebar toggle shows burger menu instead of collapse arrow on mobile */
+    .sidebar-toggle-btn {
+        display: none; /* Hide default sidebar collapse */
+    }
+    
+    /* We'll add a mobile menu burger trigger in header */
+    .mobile-menu-burger-trigger {
+        display: flex !important;
+    }
+    
+    .page-header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .header-actions-area {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .grid-4-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .card-header-table-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box-container {
+        max-width: 100%;
+    }
+    
+    .table-actions-buttons {
+        justify-content: space-between;
+    }
+}
+
+/* Base mobile menu trigger button hidden on desktop */
+.mobile-menu-burger-trigger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.mobile-menu-burger-trigger:hover {
+    background-color: var(--primary-light);
+}
